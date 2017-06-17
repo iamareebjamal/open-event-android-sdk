@@ -1,0 +1,33 @@
+{
+  "data": {
+    "relationships": {
+      "event": {
+        "links": {
+          "self": "/v1/session-types/1/relationships/event",
+          "related": "/v1/session-types/1/event"
+        }
+      },
+      "sessions": {
+        "links": {
+          "self": "/v1/session-types/1/relationships/sessions",
+          "related": "/v1/session-types/1/sessions"
+        }
+      }
+    },
+    "attributes": {
+      "name": "Welcome",
+      "length": "00:30"
+    },
+    "type": "session-type",
+    "id": "1",
+    "links": {
+      "self": "/v1/session-types/1"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/session-types/1"
+  }
+}

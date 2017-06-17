@@ -6,9 +6,11 @@ import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
 import openevent.model.Event;
 import openevent.model.Microlocation;
+import openevent.model.SessionType;
 import openevent.model.Track;
 import openevent.model.api.ApiEvent;
 import openevent.model.api.ApiMicrolocation;
+import openevent.model.api.ApiSessionType;
 import openevent.model.api.ApiTrack;
 
 import java.io.BufferedReader;
@@ -36,6 +38,12 @@ public class Application {
         //Track Deserialization
         oldModelDeserialization("tracks");
         newModelDeserialization("tracks");
+
+        System.out.println("");
+
+        //SessionType Deserialization
+        oldModelDeserialization("session_types");
+        newModelDeserialization("session_types");
     }
 
     private static void oldModelDeserialization(String string) {
@@ -57,6 +65,11 @@ public class Application {
                     });
                     System.out.println(tracks.toString());
                     break;
+                case "session_types":
+                    List<SessionType> sessionTypes = objectMapper.readValue(getFile("session_types.json"), new TypeReference<List<SessionType>>() {
+                    });
+                    System.out.println(sessionTypes.toString());
+                    break;
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -64,7 +77,7 @@ public class Application {
     }
 
     private static void newModelDeserialization(String string) {
-        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class);
+        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class, ApiSessionType.class);
 
         switch (string) {
             case "event":
@@ -82,6 +95,12 @@ public class Application {
                 List<ApiTrack> tracks = trackDocumentCollection.get();
                 System.out.println(tracks.toString());
                 break;
+            case "session_types":
+                JSONAPIDocument<List<ApiSessionType>> sessionTypeDocumentCollection = converter.readDocumentCollection(getInputStream("api/session_types.json"), ApiSessionType.class);
+                List<ApiSessionType> sessionTypes = sessionTypeDocumentCollection.get();
+                System.out.println(sessionTypes.toString());
+                break;
+
         }
     }
 
