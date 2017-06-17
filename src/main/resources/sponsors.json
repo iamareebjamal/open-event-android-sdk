@@ -1,0 +1,19 @@
+[{
+        "id": 10, 
+        "name": "Python", 
+        "logo": "/images/sponsors/Python_10.png", 
+        "level": "5", 
+        "sponsor_type": "Silver", 
+        "url": "https://www.python.org/", 
+        "description": ""
+    }, 
+    {
+        "id": 12, 
+        "name": "Youth Mobile", 
+        "logo": "/images/sponsors/YouthMobile_12.png", 
+        "level": "4", 
+        "sponsor_type": "Bronze", 
+        "url": "http://www.youthmobile.org/", 
+        "description": ""
+    }
+]
