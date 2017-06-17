@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "count": 2
+  },
+  "data": [
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/microlocations/1/relationships/event",
+            "related": "/v1/microlocations/1/event"
+          }
+        },
+        "sessions": {
+          "links": {
+            "self": "/v1/microlocations/1/relationships/sessions",
+            "related": "/v1/microlocations/1/sessions"
+          }
+        }
+      },
+      "attributes": {
+        "name": "microlocation-1",
+        "latitude": 1.000000,
+        "longitude": 103.000000,
+        "floor": 2,
+        "room": "room1"
+      },
+      "type": "microlocation",
+      "id": "1",
+      "links": {
+        "self": "/v1/microlocations/1"
+      }
+    },
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/microlocations/2/relationships/event",
+            "related": "/v1/microlocations/2/event"
+          }
+        },
+        "sessions": {
+          "links": {
+            "self": "/v1/microlocations/2/relationships/sessions",
+            "related": "/v1/microlocations/2/sessions"
+          }
+        }
+      },
+      "attributes": {
+        "name": "microlocation-2",
+        "latitude": 1.000000,
+        "longitude": 103.000000,
+        "floor": 2,
+        "room": "room1"
+      },
+      "type": "microlocation",
+      "id": "2",
+      "links": {
+        "self": "/v1/microlocations/2"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/microlocations"
+  }
+}

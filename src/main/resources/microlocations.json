@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Dalton Hall",
+    "floor": 1,
+    "latitude": 1.333169,
+    "longitude": 103.735516,
+    "room": null
+  },
+  {
+    "id": 2,
+    "name": "Planck",
+    "floor": 3,
+    "latitude": 1.332904,
+    "longitude": 103.735583,
+    "room": null
+  }
+]
