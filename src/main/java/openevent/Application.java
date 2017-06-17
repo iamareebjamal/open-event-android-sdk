@@ -6,8 +6,10 @@ import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
 import openevent.model.Event;
 import openevent.model.Microlocation;
+import openevent.model.Track;
 import openevent.model.api.ApiEvent;
 import openevent.model.api.ApiMicrolocation;
+import openevent.model.api.ApiTrack;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,6 +30,12 @@ public class Application {
         //Microlocations Deserialization
         oldModelDeserialization("microlocations");
         newModelDeserialization("microlocations");
+
+        System.out.println("");
+
+        //Track Deserialization
+        oldModelDeserialization("tracks");
+        newModelDeserialization("tracks");
     }
 
     private static void oldModelDeserialization(String string) {
@@ -44,6 +52,11 @@ public class Application {
                     });
                     System.out.println(mircolocations.toString());
                     break;
+                case "tracks":
+                    List<Track> tracks = objectMapper.readValue(getFile("tracks.json"), new TypeReference<List<Track>>() {
+                    });
+                    System.out.println(tracks.toString());
+                    break;
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -51,7 +64,7 @@ public class Application {
     }
 
     private static void newModelDeserialization(String string) {
-        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class);
+        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class);
 
         switch (string) {
             case "event":
@@ -63,6 +76,11 @@ public class Application {
                 JSONAPIDocument<List<ApiMicrolocation>> microlocationDocumentCollection = converter.readDocumentCollection(getInputStream("api/microlocations.json"), ApiMicrolocation.class);
                 List<ApiMicrolocation> microlocation = microlocationDocumentCollection.get();
                 System.out.println(microlocation.toString());
+                break;
+            case "tracks":
+                JSONAPIDocument<List<ApiTrack>> trackDocumentCollection = converter.readDocumentCollection(getInputStream("api/tracks.json"), ApiTrack.class);
+                List<ApiTrack> tracks = trackDocumentCollection.get();
+                System.out.println(tracks.toString());
                 break;
         }
     }

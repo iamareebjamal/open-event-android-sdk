@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "count": 2
+  },
+  "data": [
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/tracks/1/relationships/event",
+            "related": "/v1/tracks/1/event"
+          }
+        },
+        "sessions": {
+          "links": {
+            "self": "/v1/tracks/1/relationships/sessions",
+            "related": "/v1/tracks/1/sessions"
+          }
+        }
+      },
+      "attributes": {
+        "name": "Main Track",
+        "description": "description",
+        "color": "#a04b4b",
+        "font-color": "#ffffff"
+      },
+      "type": "track",
+      "id": "1",
+      "links": {
+        "self": "/v1/tracks/1"
+      }
+    },
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/tracks/2/relationships/event",
+            "related": "/v1/tracks/2/event"
+          }
+        },
+        "sessions": {
+          "links": {
+            "self": "/v1/tracks/2/relationships/sessions",
+            "related": "/v1/tracks/2/sessions"
+          }
+        }
+      },
+      "attributes": {
+        "name": "OpenTech",
+        "description": "description",
+        "color": "#1485CC",
+        "font-color": "#ffffff"
+      },
+      "type": "track",
+      "id": "2",
+      "links": {
+        "self": "/v1/tracks/2"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/trackss"
+  }
+}

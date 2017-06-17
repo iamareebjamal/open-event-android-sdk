@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "OpenTech and IoT",
+    "description": "",
+    "color": "#3DC8C3",
+    "font-color": "#ffffff",
+    "sessions": [
+      {
+        "id": 1,
+        "title": "Grand Opening"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "OpenTech Workshops",
+    "description": "",
+    "color": "#1485CC",
+    "font-color": "#ffffff",
+    "sessions": [
+      {
+        "id": 2,
+        "title": "Deep Learning: From Inception to Dreams"
+      }
+    ]
+  }
+]
