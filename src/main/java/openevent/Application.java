@@ -4,14 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
-import openevent.model.Event;
-import openevent.model.Microlocation;
-import openevent.model.SessionType;
-import openevent.model.Track;
-import openevent.model.api.ApiEvent;
-import openevent.model.api.ApiMicrolocation;
-import openevent.model.api.ApiSessionType;
-import openevent.model.api.ApiTrack;
+import openevent.model.*;
+import openevent.model.api.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,6 +38,12 @@ public class Application {
         //SessionType Deserialization
         oldModelDeserialization("session_types");
         newModelDeserialization("session_types");
+
+        System.out.println("");
+
+        //Session Deserialization
+        oldModelDeserialization("sessions");
+        newModelDeserialization("sessions");
     }
 
     private static void oldModelDeserialization(String string) {
@@ -63,12 +63,17 @@ public class Application {
                 case "tracks":
                     List<Track> tracks = objectMapper.readValue(getFile("tracks.json"), new TypeReference<List<Track>>() {
                     });
-                    System.out.println(tracks.toString());
+                    System.out.println(tracks);
                     break;
                 case "session_types":
                     List<SessionType> sessionTypes = objectMapper.readValue(getFile("session_types.json"), new TypeReference<List<SessionType>>() {
                     });
-                    System.out.println(sessionTypes.toString());
+                    System.out.println(sessionTypes);
+                    break;
+                case "sessions":
+                    List<Session> sessions = objectMapper.readValue(getFile("sessions.json"), new TypeReference<List<Session>>() {
+                    });
+                    System.out.println(sessions);
                     break;
             }
         } catch (IOException ioe) {
@@ -77,7 +82,7 @@ public class Application {
     }
 
     private static void newModelDeserialization(String string) {
-        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class, ApiSessionType.class);
+        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class, ApiSessionType.class, ApiSession.class);
 
         switch (string) {
             case "event":
@@ -100,7 +105,11 @@ public class Application {
                 List<ApiSessionType> sessionTypes = sessionTypeDocumentCollection.get();
                 System.out.println(sessionTypes.toString());
                 break;
-
+            case "sessions":
+                JSONAPIDocument<List<ApiSession>> sessionDocumentCollection = converter.readDocumentCollection(getInputStream("api/sessions.json"), ApiSession.class);
+                List<ApiSession> sessions = sessionDocumentCollection.get();
+                System.out.println(sessions.toString());
+                break;
         }
     }
 

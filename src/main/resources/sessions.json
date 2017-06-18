@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Grand Opening",
+    "subtitle": null,
+    "short-abstract": "Short Abstract for the event",
+    "long-abstract": "",
+    "starts-at": "2017-05-31T09:30:00+05:30",
+    "ends-at": "2017-05-31T10:00:00+05:30",
+    "session-type": {
+      "id": 1,
+      "length": "00:30",
+      "name": "Welcome"
+    },
+    "track": {
+      "id": 1,
+      "name": "OpenTech and IoT"
+    },
+    "comments": null,
+    "language": null,
+    "slides": null,
+    "audio": null,
+    "video": null,
+    "microlocation": {
+      "id": 1,
+      "name": "Dalton Hall"
+    },
+    "signup-url": null,
+    "speakers": [
+      {
+        "id": 1,
+        "name": "Hong Phuc Dang",
+        "organisation": "FOSSASIA"
+      }
+    ],
+    "state": "accepted"
+  },
+  {
+    "id": 2,
+    "title": "Deep Learning: From Inception to Dreams",
+    "subtitle": null,
+    "short-abstract": "Short Abstract for the event",
+    "long-abstract": "",
+    "starts-at": "2017-05-31T10:00:00+08:00",
+    "ends-at": "2017-05-31T10:30:00+08:00",
+    "session-type": {
+      "id": 2,
+      "length": "00:30",
+      "name": "Workshop"
+    },
+    "track": {
+      "id": 2,
+      "name": "OpenTech Workshops"
+    },
+    "comments": "",
+    "language": null,
+    "slides": null,
+    "audio": null,
+    "video": null,
+    "microlocation": {
+      "id": 2,
+      "name": "Lewis Lab"
+    },
+    "signup-url": null,
+    "speakers": [
+      {
+        "id": 2,
+        "name": "Martin Andrews",
+        "organisation": "Red Cat Labs"
+      }
+    ],
+    "state": "accepted"
+  }
+]

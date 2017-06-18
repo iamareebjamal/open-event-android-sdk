@@ -1,40 +1,23 @@
-package openevent.model;
+package openevent.model.api;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.jasminb.jsonapi.annotations.Id;
+import com.github.jasminb.jsonapi.annotations.Type;
 
-import java.util.List;
+@Type("session")
+public class ApiSession {
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "id",
-        "title",
-        "subtitle",
-        "short-abstract",
-        "long-abstract",
-        "comments",
-        "starts-at",
-        "ends-at",
-        "session-type",
-        "track",
-        "language",
-        "slides",
-        "videos",
-        "audios",
-        "signup-url",
-        "microlocation",
-        "speakers",
-        "state"
-})
-public class Session {
+    //TODO: Add relationships with other classes(event, track, microlocation, session-type)
 
-    @JsonProperty("id")
+    @Id
+    @JsonProperty
     private String id;
     @JsonProperty("title")
     private String title;
     @JsonProperty("subtitle")
     private String subtitle;
+    @JsonProperty("level")
+    private String level;
     @JsonProperty("short-abstract")
     private String shortAbstract;
     @JsonProperty("long-abstract")
@@ -47,24 +30,24 @@ public class Session {
     private String endsAt;
     @JsonProperty("language")
     private String language;
-    @JsonProperty("slides")
+    @JsonProperty("slides-url")
     private String slidesUrl;
-    @JsonProperty("video")
+    @JsonProperty("videos-url")
     private String videoUrl;
-    @JsonProperty("audio")
+    @JsonProperty("audios-url")
     private String audioUrl;
     @JsonProperty("signup-url")
     private String signupUrl;
     @JsonProperty("state")
     private String state;
-    @JsonProperty("session-type")
-    private SessionType sessionType;
-    @JsonProperty("track")
-    private Track track;
-    @JsonProperty("microlocation")
-    private Microlocation microlocation;
-    @JsonProperty("speakers")
-    private List<Speaker> speakers;
+    @JsonProperty("created-at")
+    private String createdAt;
+    @JsonProperty("deleted-at")
+    private String deletedAt;
+    @JsonProperty("submitted-at")
+    private String submittedAt;
+    @JsonProperty("is-mail-sent")
+    private String isMailSent;
 
     @JsonProperty("id")
     public String getId() {
@@ -94,6 +77,16 @@ public class Session {
     @JsonProperty("subtitle")
     public void setSubtitle(String subtitle) {
         this.subtitle = subtitle;
+    }
+
+    @JsonProperty("level")
+    public String getLevel() {
+        return level;
+    }
+
+    @JsonProperty("level")
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     @JsonProperty("short-abstract")
@@ -156,32 +149,32 @@ public class Session {
         this.language = language;
     }
 
-    @JsonProperty("slides")
+    @JsonProperty("slides-url")
     public String getSlidesUrl() {
         return slidesUrl;
     }
 
-    @JsonProperty("slides")
+    @JsonProperty("slides-url")
     public void setSlidesUrl(String slidesUrl) {
         this.slidesUrl = slidesUrl;
     }
 
-    @JsonProperty("video")
+    @JsonProperty("videos-url")
     public String getVideoUrl() {
         return videoUrl;
     }
 
-    @JsonProperty("video")
+    @JsonProperty("videos-url")
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
 
-    @JsonProperty("audio")
+    @JsonProperty("audios-url")
     public String getAudioUrl() {
         return audioUrl;
     }
 
-    @JsonProperty("audio")
+    @JsonProperty("audios-url")
     public void setAudioUrl(String audioUrl) {
         this.audioUrl = audioUrl;
     }
@@ -206,44 +199,44 @@ public class Session {
         this.state = state;
     }
 
-    @JsonProperty("session-type")
-    public SessionType getSessionType() {
-        return sessionType;
+    @JsonProperty("created-at")
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    @JsonProperty("session-type")
-    public void setSessionType(SessionType sessionType) {
-        this.sessionType = sessionType;
+    @JsonProperty("created-at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
-    @JsonProperty("track")
-    public Track getTrack() {
-        return track;
+    @JsonProperty("deleted-at")
+    public String getDeletedAt() {
+        return deletedAt;
     }
 
-    @JsonProperty("track")
-    public void setTrack(Track track) {
-        this.track = track;
+    @JsonProperty("deleted-at")
+    public void setDeletedAt(String deletedAt) {
+        this.deletedAt = deletedAt;
     }
 
-    @JsonProperty("microlocation")
-    public Microlocation getMicrolocation() {
-        return microlocation;
+    @JsonProperty("submitted-at")
+    public String getSubmittedAt() {
+        return submittedAt;
     }
 
-    @JsonProperty("microlocation")
-    public void setMicrolocation(Microlocation microlocation) {
-        this.microlocation = microlocation;
+    @JsonProperty("submitted-at")
+    public void setSubmittedAt(String submittedAt) {
+        this.submittedAt = submittedAt;
     }
 
-    @JsonProperty("speakers")
-    public List<Speaker> getSpeakers() {
-        return speakers;
+    @JsonProperty("is-mail-sent")
+    public String getIsMailSent() {
+        return isMailSent;
     }
 
-    @JsonProperty("speakers")
-    public void setSpeakers(List<Speaker> speakers) {
-        this.speakers = speakers;
+    @JsonProperty("is-mail-sent")
+    public void setIsMailSent(String isMailSent) {
+        this.isMailSent = isMailSent;
     }
 
     @Override
@@ -252,21 +245,23 @@ public class Session {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", subtitle='" + subtitle + '\'' +
+                ", level='" + level + '\'' +
                 ", short-abstract='" + shortAbstract + '\'' +
                 ", long-abstarct='" + longAbstract + '\'' +
                 ", comments='" + comments + '\'' +
                 ", starts-at='" + startsAt + '\'' +
                 ", ends-at='" + endsAt + '\'' +
-                ", session-type='" + sessionType + '\'' +
-                ", track='" + track + '\'' +
                 ", language='" + language + '\'' +
-                ", slides='" + slidesUrl + '\'' +
-                ", video='" + videoUrl + '\'' +
-                ", audio='" + audioUrl + '\'' +
+                ", slides-url='" + slidesUrl + '\'' +
+                ", videos-url='" + videoUrl + '\'' +
+                ", audios-url='" + audioUrl + '\'' +
                 ", signup-url='" + signupUrl + '\'' +
-                ", microlocation='" + microlocation + '\'' +
-                ", speakers='" + speakers + '\'' +
                 ", state='" + state + '\'' +
+                ", created-at='" + createdAt + '\'' +
+                ", ends-at='" + endsAt + '\'' +
+                ", deleted-at='" + deletedAt + '\'' +
+                ", submitted-at='" + submittedAt + '\'' +
+                ", is-mail-sent='" + isMailSent + '\'' +
                 '}';
     }
 }

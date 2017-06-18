@@ -98,7 +98,7 @@ public class Track {
                 ", description='" + description + '\'' +
                 ", color='" + color + '\'' +
                 ", font-color='" + fontColor + '\'' +
-                ", sessions='" + sessions.toString() + '\'' +
+                ", sessions='" + sessions + '\'' +
                 '}';
     }
 }

@@ -1,0 +1,119 @@
+{
+  "meta": {
+    "count": 2
+  },
+  "data": [
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/sessions/1/relationships/event",
+            "related": "/v1/sessions/1/event"
+          }
+        },
+        "track": {
+          "links": {
+            "self": "/v1/sessions/1/relationships/track",
+            "related": "/v1/sessions/1/track"
+          }
+        },
+        "microlocation": {
+          "links": {
+            "self": "/v1/sessions/1/relationships/microlocation",
+            "related": "/v1/sessions/1/microlocation"
+          }
+        },
+        "session-type": {
+          "links": {
+            "self": "/v1/sessions/1/relationships/session-type",
+            "related": "/v1/sessions/1/session-type"
+          }
+        }
+      },
+      "attributes": {
+        "title": "Grand Opening",
+        "subtitle": null,
+        "level": 1,
+        "short-abstract": "Short Abstract for the event",
+        "long-abstract": null,
+        "comments": null,
+        "starts-at": "2017-05-31T09:30:00+05:30",
+        "ends-at": "2017-05-31T10:00:00+05:30",
+        "language": "English",
+        "slides-url": null,
+        "videos-url": null,
+        "audios-url": null,
+        "signup-url": null,
+        "state": null,
+        "created-at": "2017-05-01T01:24:47+00:00",
+        "deleted-at": null,
+        "submitted-at": null,
+        "is-mail-sent": false
+      },
+      "type": "session",
+      "id": "1",
+      "links": {
+        "self": "/v1/sessions/1"
+      }
+    },
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/sessions/2/relationships/event",
+            "related": "/v1/sessions/2/event"
+          }
+        },
+        "track": {
+          "links": {
+            "self": "/v1/sessions/2/relationships/track",
+            "related": "/v1/sessions/2/track"
+          }
+        },
+        "microlocation": {
+          "links": {
+            "self": "/v1/sessions/2/relationships/microlocation",
+            "related": "/v1/sessions/2/microlocation"
+          }
+        },
+        "session-type": {
+          "links": {
+            "self": "/v1/sessions/2/relationships/session-type",
+            "related": "/v1/sessions/2/session-type"
+          }
+        }
+      },
+      "attributes": {
+        "title": "Deep Learning: From Inception to Dreams",
+        "subtitle": null,
+        "level": 1,
+        "short-abstract": "Short Abstract for the event",
+        "long-abstract": null,
+        "comments": null,
+        "starts-at": "2017-05-31T10:00:00+08:00",
+        "ends-at": "2017-05-31T10:30:00+08:00",
+        "language": "English",
+        "slides-url": null,
+        "videos-url": null,
+        "audios-url": null,
+        "signup-url": null,
+        "state": null,
+        "created-at": "2017-05-01T01:24:47+00:00",
+        "deleted-at": null,
+        "submitted-at": null,
+        "is-mail-sent": false
+      },
+      "type": "session",
+      "id": "2",
+      "links": {
+        "self": "/v1/sessions/2"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/sessions"
+  }
+}
