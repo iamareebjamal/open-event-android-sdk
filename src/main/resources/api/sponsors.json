@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "count": 2
+  },
+  "data": [{
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/sponsors/1/relationships/event",
+            "related": "/v1/sponsors/1/event"
+          }
+        }
+      },
+      "attributes": {
+        "description": "Some Description",
+        "level": "Level",
+        "url": "http://example.com",
+        "type": "Type",
+        "logo-url": "http://placehold.it/200X200",
+        "name": "New Brand"
+      },
+      "type": "sponsor",
+      "id": "1",
+      "links": {
+        "self": "/v1/sponsors/1"
+      }
+    },
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/sponsors/2/relationships/event",
+            "related": "/v1/sponsors/2/event"
+          }
+        }
+      },
+      "attributes": {
+        "description": "Google",
+        "level": "1",
+        "url": "http://google.com",
+        "type": "Gold",
+        "logo-url": "http://placehold.it/200X200",
+        "name": "Goolgle is a Tech Corp"
+      },
+      "type": "sponsor",
+      "id": "2",
+      "links": {
+        "self": "/v1/sponsors/2"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/sponsors"
+  }
+}
