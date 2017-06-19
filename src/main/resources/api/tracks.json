@@ -15,7 +15,13 @@
           "links": {
             "self": "/v1/tracks/1/relationships/sessions",
             "related": "/v1/tracks/1/sessions"
-          }
+          },
+          "data": [
+            {
+              "type": "session",
+              "id": "1"
+            }
+          ]
         }
       },
       "attributes": {
@@ -42,7 +48,13 @@
           "links": {
             "self": "/v1/tracks/2/relationships/sessions",
             "related": "/v1/tracks/2/sessions"
-          }
+          },
+          "data": [
+            {
+              "type": "session",
+              "id": "2"
+            }
+          ]
         }
       },
       "attributes": {
@@ -55,6 +67,28 @@
       "id": "2",
       "links": {
         "self": "/v1/tracks/2"
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "session",
+      "id": "1",
+      "attributes": {
+        "title": "Grand Opening"
+      },
+      "links": {
+        "self": "/v1/sessions/1"
+      }
+    },
+    {
+      "type": "session",
+      "id": "2",
+      "attributes": {
+        "title": "Deep Learning: From Inception to Dreams"
+      },
+      "links": {
+        "self": "/v1/sessions/2"
       }
     }
   ],
