@@ -1,17 +1,30 @@
 package openevent;
 
-import java.io.InputStreamReader;
-import java.util.List;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.InputStream;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
-import openevent.model.*;
-import openevent.model.api.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import openevent.model.Event;
+import openevent.model.Microlocation;
+import openevent.model.Session;
+import openevent.model.SessionType;
+import openevent.model.Speaker;
+import openevent.model.Sponsor;
+import openevent.model.Track;
+import openevent.model.api.ApiEvent;
+import openevent.model.api.ApiMicrolocation;
+import openevent.model.api.ApiSession;
+import openevent.model.api.ApiSessionType;
+import openevent.model.api.ApiSpeaker;
+import openevent.model.api.ApiSponsor;
+import openevent.model.api.ApiTrack;
 
 public class Application {
 
@@ -50,6 +63,12 @@ public class Application {
         //Session Deserialization
         oldModelDeserialization("sessions");
         newModelDeserialization("sessions");
+
+        System.out.println("");
+
+        //Speakers Deserialization
+        oldModelDeserialization("speakers");
+        newModelDeserialization("speakers");
     }
 
     private static void oldModelDeserialization(String string) {
@@ -86,6 +105,11 @@ public class Application {
                     });
                     System.out.println(sessions);
                     break;
+                case "speakers":
+                    List<Speaker> speakers = objectMapper.readValue(getFile("speakers.json"), new TypeReference<List<Speaker>>() {
+                    });
+                    System.out.println(speakers);
+                    break;
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -93,7 +117,7 @@ public class Application {
     }
 
     private static void newModelDeserialization(String string) {
-        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class, ApiSessionType.class, ApiSession.class,ApiSponsor.class);
+        ResourceConverter converter = new ResourceConverter(ApiEvent.class, ApiMicrolocation.class, ApiTrack.class, ApiSessionType.class, ApiSession.class, ApiSponsor.class, ApiSpeaker.class);
 
         switch (string) {
             case "event":
@@ -111,7 +135,6 @@ public class Application {
                 List<ApiSponsor> sponsor = sponsorDocumentCollection.get();
                 System.out.println(sponsor.toString());
                 break;
-         
             case "tracks":
                 JSONAPIDocument<List<ApiTrack>> trackDocumentCollection = converter.readDocumentCollection(getInputStream("api/tracks.json"), ApiTrack.class);
                 List<ApiTrack> tracks = trackDocumentCollection.get();
@@ -126,6 +149,11 @@ public class Application {
                 JSONAPIDocument<List<ApiSession>> sessionDocumentCollection = converter.readDocumentCollection(getInputStream("api/sessions.json"), ApiSession.class);
                 List<ApiSession> sessions = sessionDocumentCollection.get();
                 System.out.println(sessions.toString());
+                break;
+            case "speakers":
+                JSONAPIDocument<List<ApiSpeaker>> speakerDocumentCollection = converter.readDocumentCollection(getInputStream("api/speakers.json"), ApiSpeaker.class);
+                List<ApiSpeaker> speakers = speakerDocumentCollection.get();
+                System.out.println(speakers.toString());
                 break;
         }
     }

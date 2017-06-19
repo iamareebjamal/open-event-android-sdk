@@ -247,7 +247,7 @@ public class ApiSession {
                 ", subtitle='" + subtitle + '\'' +
                 ", level='" + level + '\'' +
                 ", short-abstract='" + shortAbstract + '\'' +
-                ", long-abstarct='" + longAbstract + '\'' +
+                ", long-abstract='" + longAbstract + '\'' +
                 ", comments='" + comments + '\'' +
                 ", starts-at='" + startsAt + '\'' +
                 ", ends-at='" + endsAt + '\'' +

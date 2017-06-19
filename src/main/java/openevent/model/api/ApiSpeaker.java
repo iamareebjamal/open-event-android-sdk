@@ -1,35 +1,20 @@
-package openevent.model;
+package openevent.model.api;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.jasminb.jsonapi.annotations.Id;
 
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "id",
-        "name",
-        "email",
-        "mobile",
-        "photo",
-        "organisation",
-        "position",
-        "country",
-        "short_biography",
-        "long_biography",
-        "speaking_experience",
-        "website",
-        "twitter",
-        "facebook",
-        "github",
-        "linkedin",
-        "featured",
-        "sessions"
-})
-public class Speaker {
+import openevent.model.Session;
 
-    @JsonProperty("id")
+/**
+ * Created by arpitdec5 on 19-06-2017.
+ */
+
+public class ApiSpeaker {
+
+    @Id
+    @JsonProperty
     private String id;
     @JsonProperty("name")
     private String name;
@@ -45,11 +30,11 @@ public class Speaker {
     private String position;
     @JsonProperty("country")
     private String country;
-    @JsonProperty("short_biography")
+    @JsonProperty("short-biography")
     private String shortBiography;
-    @JsonProperty("long_biography")
+    @JsonProperty("long-biography")
     private String longBiography;
-    @JsonProperty("speaking_experience")
+    @JsonProperty("speaking-experience")
     private String speakingExperience;
     @JsonProperty("website")
     private String websiteUrl;
@@ -61,7 +46,7 @@ public class Speaker {
     private String githubUrl;
     @JsonProperty("linkedin")
     private String linkedinUrl;
-    @JsonProperty("featured")
+    @JsonProperty("is-featured")
     private boolean isFeatured;
     @JsonProperty("sessions")
     private List<Session> sessions;
@@ -146,32 +131,32 @@ public class Speaker {
         this.country = country;
     }
 
-    @JsonProperty("short_biography")
+    @JsonProperty("short-biography")
     public String getShortBiography() {
         return shortBiography;
     }
 
-    @JsonProperty("short_biography")
+    @JsonProperty("short-biography")
     public void setShortBiography(String shortBiography) {
         this.shortBiography = shortBiography;
     }
 
-    @JsonProperty("long_biography")
+    @JsonProperty("long-biography")
     public String getLongBiography() {
         return longBiography;
     }
 
-    @JsonProperty("long_biography")
+    @JsonProperty("long-biography")
     public void setLongBiography(String longBiography) {
         this.longBiography = longBiography;
     }
 
-    @JsonProperty("speaking_experience")
+    @JsonProperty("speaking-experience")
     public String getSpeakingExperience() {
         return speakingExperience;
     }
 
-    @JsonProperty("speaking_experience")
+    @JsonProperty("speaking-experience")
     public void setSpeakingExperience(String speakingExperience) {
         this.speakingExperience = speakingExperience;
     }
@@ -226,12 +211,12 @@ public class Speaker {
         this.linkedinUrl = linkedinUrl;
     }
 
-    @JsonProperty("featured")
+    @JsonProperty("is-featured")
     public boolean getFeatured() {
         return isFeatured;
     }
 
-    @JsonProperty("featured")
+    @JsonProperty("is-featured")
     public void setFeatured(boolean isFeatured) {
         this.isFeatured = isFeatured;
     }
@@ -257,15 +242,15 @@ public class Speaker {
                 ", organisation='" + organisation + '\'' +
                 ", position='" + position + '\'' +
                 ", country='" + country + '\'' +
-                ", short_biography='" + shortBiography + '\'' +
-                ", long_biography='" + longBiography + '\'' +
-                ", speaking_experience='" + speakingExperience + '\'' +
+                ", short-biography='" + shortBiography + '\'' +
+                ", long-biography='" + longBiography + '\'' +
+                ", speaking-experience='" + speakingExperience + '\'' +
                 ", website='" + websiteUrl + '\'' +
                 ", twitter='" + twitterUrl + '\'' +
                 ", facebook='" + fbUrl + '\'' +
                 ", github='" + githubUrl + '\'' +
                 ", linkedin='" + linkedinUrl + '\'' +
-                ", featured='" + isFeatured + '\'' +
+                ", is-featured='" + isFeatured + '\'' +
                 ", sessions='" + sessions + '\'' +
                 '}';
     }

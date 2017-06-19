@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "count": 2
+  },
+  "data": [
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/speakers/1/relationships/event",
+            "related": "/v1/speakers/1/event"
+          }
+        },
+        "session": {
+          "links": {
+            "self": "/v1/speakers/1/relationships/session",
+            "related": "/v1/speakers/1/session"
+          }
+        }
+      },
+      "attributes": {
+        "id": 1,
+        "name": "Hong Phuc Dang",
+        "email": "",
+        "mobile": "",
+        "photo": "https://drive.google.com/uc?export=download&id=0B6k_UTO5VOZKZ0JBVHJoREJJNkU",
+        "organisation": "FOSSASIA",
+        "position": "Founder",
+        "country": "",
+        "short-biography": "<p>Internationally educated business professional with focus on open technologies, developer community outreach and business development. Extensive knowledge and technical expertise in information technologies, Open Source applications and developer community engagement.</p>",
+        "long-biography": "<p>Internationally educated business professional with focus on open technologies, developer community outreach and business development. Extensive knowledge and technical expertise in information technologies, Open Source applications and developer community engagement.</p>",
+        "speaking-experience": "",
+        "website": "",
+        "twitter": "https://twitter.com/hpdang",
+        "facebook": "",
+        "github": "https://github.com/hpdang",
+        "linkedin": "https://www.linkedin.com/in/hongphucdang/",
+        "is-featured": true,
+        "sessions": [
+          {
+            "id": 1,
+            "title": "Grand Opening"
+          }
+        ]
+      },
+      "type": "speakers",
+      "id": "1",
+      "links": {
+        "self": "/v1/speakers/1"
+      }
+    },
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/speakers/2/relationships/event",
+            "related": "/v1/speakers/2/event"
+          }
+        },
+        "session": {
+          "links": {
+            "self": "/v1/speakers/1/relationships/session",
+            "related": "/v1/speakers/1/session"
+          }
+        }
+      },
+      "attributes": {
+        "id": 2,
+        "name": "Martin Andrews",
+        "email": "",
+        "mobile": "",
+        "photo": "https://drive.google.com/uc?export=download&id=0B6k_UTO5VOZKa1liTXBDR0pzcDQ",
+        "organisation": "Red Cat Labs",
+        "position": "Machine Learning",
+        "country": "",
+        "short-biography": "<p>Experienced financial industry entrepreneur. Now relocated to Singapore to get back to the Machine Learning roots of my PhD years.</p>",
+        "long-biography": "<p>Experienced financial industry entrepreneur. Now relocated to Singapore to get back to the Machine Learning roots of my PhD years.</p>",
+        "speaking-experience": "",
+        "website": "",
+        "twitter": "",
+        "facebook": "",
+        "github": "https://github.com/mdda",
+        "linkedin": "https://www.linkedin.com/in/martinandrews/",
+        "is-featured": false,
+        "sessions": [
+          {
+            "id": 2,
+            "title": "Deep Learning: From Inception to Dreams"
+          }
+        ]
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/speakers"
+  }
+}
