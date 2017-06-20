@@ -15,19 +15,43 @@
           "links": {
             "self": "/v1/sessions/1/relationships/track",
             "related": "/v1/sessions/1/track"
+          },
+          "data": {
+            "type": "track",
+            "id": "1"
           }
         },
         "microlocation": {
           "links": {
             "self": "/v1/sessions/1/relationships/microlocation",
             "related": "/v1/sessions/1/microlocation"
+          },
+          "data": {
+            "type": "microlocation",
+            "id": "1"
           }
         },
         "session-type": {
           "links": {
             "self": "/v1/sessions/1/relationships/session-type",
             "related": "/v1/sessions/1/session-type"
+          },
+          "data": {
+            "type": "session-type",
+            "id": "1"
           }
+        },
+        "speakers": {
+          "links": {
+            "self": "/v1/sessions/1/relationships/speakers",
+            "related": "/v1/sessions/1/speakers"
+          },
+          "data": [
+            {
+              "type": "speaker",
+              "id": "1"
+            }
+          ]
         }
       },
       "attributes": {
@@ -68,19 +92,43 @@
           "links": {
             "self": "/v1/sessions/2/relationships/track",
             "related": "/v1/sessions/2/track"
+          },
+          "data": {
+            "type": "track",
+            "id": "2"
           }
         },
         "microlocation": {
           "links": {
             "self": "/v1/sessions/2/relationships/microlocation",
             "related": "/v1/sessions/2/microlocation"
+          },
+          "data": {
+            "type": "microlocation",
+            "id": "2"
           }
         },
         "session-type": {
           "links": {
             "self": "/v1/sessions/2/relationships/session-type",
             "related": "/v1/sessions/2/session-type"
+          },
+          "data": {
+            "type": "session-type",
+            "id": "2"
           }
+        },
+        "speakers": {
+          "links": {
+            "self": "/v1/sessions/2/relationships/speakers",
+            "related": "/v1/sessions/2/speakers"
+          },
+          "data": [
+            {
+              "type": "speaker",
+              "id": "2"
+            }
+          ]
         }
       },
       "attributes": {
@@ -107,6 +155,92 @@
       "id": "2",
       "links": {
         "self": "/v1/sessions/2"
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "track",
+      "id": "1",
+      "attributes": {
+        "name": "Grand Opening"
+      },
+      "links": {
+        "self": "/v1/tracks/1"
+      }
+    },
+    {
+      "type": "track",
+      "id": "2",
+      "attributes": {
+        "name": "OpenTech"
+      },
+      "links": {
+        "self": "/v1/tracks/2"
+      }
+    },
+    {
+      "type": "microlocation",
+      "id": "1",
+      "attributes": {
+        "name": "microlocation-1"
+      },
+      "links": {
+        "self": "/v1/microlocations/1"
+      }
+    },
+    {
+      "type": "microlocation",
+      "id": "2",
+      "attributes": {
+        "name": "microlocation-1"
+      },
+      "links": {
+        "self": "/v1/microlocations/2"
+      }
+    },
+    {
+      "type": "session-type",
+      "id": "1",
+      "attributes": {
+        "name": "Welcome",
+        "length": "00:30"
+      },
+      "links": {
+        "self": "/v1/session-types/1"
+      }
+    },
+    {
+      "type": "session-type",
+      "id": "2",
+      "attributes": {
+        "name": "Workshop",
+        "length": "00:30"
+      },
+      "links": {
+        "self": "/v1/session-types/2"
+      }
+    },
+    {
+      "type": "speaker",
+      "id": "1",
+      "attributes": {
+        "name": "Hong Phuc Dang",
+        "organisation": "FOSSASIA"
+      },
+      "links": {
+        "self": "/v1/speakers/1"
+      }
+    },
+    {
+      "type": "speaker",
+      "id": "2",
+      "attributes": {
+        "name": "Martin Andrews",
+        "organisation": "Red Cat Labs"
+      },
+      "links": {
+        "self": "/v1/speakers/2"
       }
     }
   ],

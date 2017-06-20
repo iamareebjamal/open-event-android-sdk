@@ -4,27 +4,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
+import openevent.model.*;
+import openevent.model.api.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.List;
 
-import openevent.model.Event;
-import openevent.model.Microlocation;
-import openevent.model.Session;
-import openevent.model.SessionType;
-import openevent.model.Speaker;
-import openevent.model.Sponsor;
-import openevent.model.Track;
-import openevent.model.api.ApiEvent;
-import openevent.model.api.ApiMicrolocation;
-import openevent.model.api.ApiSession;
-import openevent.model.api.ApiSessionType;
-import openevent.model.api.ApiSpeaker;
-import openevent.model.api.ApiSponsor;
-import openevent.model.api.ApiTrack;
+import static openevent.utils.IOUtils.getFile;
+import static openevent.utils.IOUtils.getInputStream;
 
 public class Application {
 
@@ -86,29 +73,5 @@ public class Application {
             JSONAPIDocument<T> document = converter.readDocument(getInputStream(path), type);
             System.out.println(document.get());
         }
-    }
-
-    private static InputStream getInputStream(String fileName) {
-        return Application.class.getResourceAsStream("/" + fileName);
-    }
-
-    private static String getFile(String fileName) {
-        InputStream is = getInputStream(fileName);
-
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        String read;
-
-        try {
-            while ((read = br.readLine()) != null) {
-                sb.append(read).append("\n");
-            }
-
-            br.close();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        return sb.toString();
-
     }
 }
