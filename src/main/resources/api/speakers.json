@@ -11,15 +11,20 @@
             "related": "/v1/speakers/1/event"
           }
         },
-        "session": {
+        "sessions": {
           "links": {
-            "self": "/v1/speakers/1/relationships/session",
-            "related": "/v1/speakers/1/session"
-          }
+            "self": "/v1/speakers/1/relationships/sessions",
+            "related": "/v1/speakers/1/sessions"
+          },
+          "data": [
+            {
+              "type": "session",
+              "id": "1"
+            }
+          ]
         }
       },
       "attributes": {
-        "id": 1,
         "name": "Hong Phuc Dang",
         "email": "",
         "mobile": "",
@@ -35,13 +40,7 @@
         "facebook": "",
         "github": "https://github.com/hpdang",
         "linkedin": "https://www.linkedin.com/in/hongphucdang/",
-        "is-featured": true,
-        "sessions": [
-          {
-            "id": 1,
-            "title": "Grand Opening"
-          }
-        ]
+        "is-featured": true
       },
       "type": "speaker",
       "id": "1",
@@ -57,15 +56,20 @@
             "related": "/v1/speakers/2/event"
           }
         },
-        "session": {
+        "sessions": {
           "links": {
-            "self": "/v1/speakers/1/relationships/session",
-            "related": "/v1/speakers/1/session"
-          }
+            "self": "/v1/speakers/2/relationships/sessions",
+            "related": "/v1/speakers/2/sessions"
+          },
+          "data": [
+            {
+              "type": "session",
+              "id": "2"
+            }
+          ]
         }
       },
       "attributes": {
-        "id": 2,
         "name": "Martin Andrews",
         "email": "",
         "mobile": "",
@@ -81,18 +85,34 @@
         "facebook": "",
         "github": "https://github.com/mdda",
         "linkedin": "https://www.linkedin.com/in/martinandrews/",
-        "is-featured": false,
-        "sessions": [
-          {
-            "id": 2,
-            "title": "Deep Learning: From Inception to Dreams"
-          }
-        ]
+        "is-featured": false
       },
       "type": "speaker",
       "id": "2",
       "links": {
         "self": "/v1/speakers/2"
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "session",
+      "id": "1",
+      "attributes": {
+        "title": "Grand Opening"
+      },
+      "links": {
+        "self": "/v1/sessions/1"
+      }
+    },
+    {
+      "type": "session",
+      "id": "2",
+      "attributes": {
+        "title": "Deep Learning: From Inception to Dreams"
+      },
+      "links": {
+        "self": "/v1/sessions/2"
       }
     }
   ],
