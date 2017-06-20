@@ -1,7 +1,12 @@
 package openevent.model;
 
+import com.github.jasminb.jsonapi.annotations.Id;
+import com.github.jasminb.jsonapi.annotations.Type;
+
+@Type("session-type")
 public class SessionType {
 
+    @Id
     private String id;
     private String name;
     private String length;

@@ -22,10 +22,10 @@ public class Application {
 
         try {
             //Event Deserialization
-            application.doModelDeserialization(Event.class, ApiEvent.class, "event", false);
+            application.doModelDeserialization(Event.class, Event.class, "event", false);
 
             //Microlocations Deserialization
-            application.doModelDeserialization(Microlocation.class, ApiMicrolocation.class, "microlocations", true);
+            application.doModelDeserialization(Microlocation.class, Microlocation.class, "microlocations", true);
 
             //Sponsor Deserialization
             application.doModelDeserialization(Sponsor.class, ApiSponsor.class, "sponsors", true);
@@ -34,7 +34,7 @@ public class Application {
             application.doModelDeserialization(Track.class, ApiTrack.class, "tracks", true);
 
             //SessionType Deserialization
-            application.doModelDeserialization(SessionType.class, ApiSessionType.class, "session_types", true);
+            application.doModelDeserialization(SessionType.class, SessionType.class, "session_types", true);
 
             //Session Deserialization
             application.doModelDeserialization(Session.class, ApiSession.class, "sessions", true);
