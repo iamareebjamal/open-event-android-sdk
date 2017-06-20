@@ -2,31 +2,10 @@ package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-        "id",
-        "name",
-        "email",
-        "mobile",
-        "photo",
-        "organisation",
-        "position",
-        "country",
-        "short_biography",
-        "long_biography",
-        "speaking_experience",
-        "website",
-        "twitter",
-        "facebook",
-        "github",
-        "linkedin",
-        "featured",
-        "sessions"
-})
 public class Speaker {
 
     private String id;
