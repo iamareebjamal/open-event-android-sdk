@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
+import openevent.model.Microlocation;
 
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class ApiSession {
     private ApiTrack track;
 
     @Relationship("microlocation")
-    private ApiMicrolocation microlocation;
+    private Microlocation microlocation;
 
     @Relationship("speakers")
     private List<ApiSpeaker> speakers;
@@ -223,11 +224,11 @@ public class ApiSession {
         this.track = track;
     }
 
-    public ApiMicrolocation getMicrolocation() {
+    public Microlocation getMicrolocation() {
         return microlocation;
     }
 
-    public void setMicrolocation(ApiMicrolocation microlocation) {
+    public void setMicrolocation(Microlocation microlocation) {
         this.microlocation = microlocation;
     }
 

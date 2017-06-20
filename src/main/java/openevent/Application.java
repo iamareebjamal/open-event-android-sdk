@@ -25,7 +25,7 @@ public class Application {
             application.doModelDeserialization(Event.class, ApiEvent.class, "event", false);
 
             //Microlocations Deserialization
-            application.doModelDeserialization(Microlocation.class, ApiMicrolocation.class, "microlocations", true);
+            application.doModelDeserialization(Microlocation.class, Microlocation.class, "microlocations", true);
 
             //Sponsor Deserialization
             application.doModelDeserialization(Sponsor.class, ApiSponsor.class, "sponsors", true);
