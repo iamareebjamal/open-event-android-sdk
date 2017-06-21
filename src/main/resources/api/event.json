@@ -17,7 +17,13 @@
         "links": {
           "self": "/v1/events/13/relationships/social-links",
           "related": "/v1/events/13/social-links"
-        }
+        },
+        "data": [
+          {
+            "type": "social-link",
+            "id": "1"
+          }
+        ]
       },
       "tracks": {
         "links": {
@@ -99,5 +105,17 @@
   },
   "links": {
     "self": "/v1/events/13"
-  }
+  },
+  "included": [
+    {
+      "type": "social-link",
+      "id": "1",
+      "attributes": {
+        "link": "https://twitter.com/fossasia",
+        "name": "Twitter"
+      },
+      "links": {
+        "self": "/v1/social-links/1"
+      }
+    }]
 }

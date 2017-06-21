@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
-import openevent.model.CallForPapers;
-import openevent.model.Copyright;
-import openevent.model.SocialLink;
 
 import java.util.List;
 
@@ -513,6 +510,14 @@ public class Event {
 
     public void setCopyright(Copyright copyright) {
         this.copyright = copyright;
+    }
+
+    public CallForPapers getCallForPapers() {
+        return callForPapers;
+    }
+
+    public void setCallForPapers(CallForPapers callForPapers) {
+        this.callForPapers = callForPapers;
     }
 
     @Override
