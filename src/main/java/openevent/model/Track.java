@@ -10,7 +10,7 @@ public class Track {
     private String name;
     private String description;
     private String color;
-    @JsonProperty("font-color")
+    @JsonProperty("font_color")
     private String fontColor;
     private List<Session> sessions;
 
