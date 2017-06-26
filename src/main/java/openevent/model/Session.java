@@ -1,37 +1,52 @@
 package openevent.model;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.github.jasminb.jsonapi.annotations.Id;
+import com.github.jasminb.jsonapi.annotations.Relationship;
+import com.github.jasminb.jsonapi.annotations.Type;
 
 import java.util.List;
 
+@Type("session")
 public class Session {
 
+    @Id
     private String id;
     private String title;
     private String subtitle;
-    @JsonProperty("short-abstract")
+    private String level;
     private String shortAbstract;
-    @JsonProperty("long-abstract")
     private String longAbstract;
     private String comments;
-    @JsonProperty("starts-at")
     private String startsAt;
-    @JsonProperty("ends-at")
     private String endsAt;
     private String language;
-    @JsonProperty("slides")
     private String slidesUrl;
-    @JsonProperty("video")
     private String videoUrl;
-    @JsonProperty("audio")
     private String audioUrl;
-    @JsonProperty("signup-url")
     private String signupUrl;
     private String state;
-    @JsonProperty("session-type")
+    @JsonProperty("created-at")
+    private String createdAt;
+    @JsonProperty("deleted-at")
+    private String deletedAt;
+    @JsonProperty("submitted-at")
+    private String submittedAt;
+    @JsonProperty("is-mail-sent")
+    private String isMailSent;
+
+    @Relationship("session-type")
     private SessionType sessionType;
+
+    @Relationship("track")
     private Track track;
+
+    @Relationship("microlocation")
     private Microlocation microlocation;
+
+    @Relationship("speakers")
     private List<Speaker> speakers;
 
     public String getId() {
@@ -58,19 +73,51 @@ public class Session {
         this.subtitle = subtitle;
     }
 
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    @JsonGetter("short-abstract")
     public String getShortAbstract() {
         return shortAbstract;
     }
 
+    @JsonSetter("short-abstract")
     public void setShortAbstract(String shortAbstract) {
         this.shortAbstract = shortAbstract;
     }
 
+    @JsonGetter("short_abstract")
+    private String getShortAbstractForOldModel() {
+        return shortAbstract;
+    }
+
+    @JsonSetter("short_abstract")
+    private void setShortAbstractForOldModel(String shortAbstract) {
+        this.shortAbstract = shortAbstract;
+    }
+
+    @JsonGetter("long-abstract")
     public String getLongAbstract() {
         return longAbstract;
     }
 
+    @JsonSetter("long-abstract")
     public void setLongAbstract(String longAbstract) {
+        this.longAbstract = longAbstract;
+    }
+
+    @JsonGetter("long_abstract")
+    private String getLongAbstractForOldModel() {
+        return longAbstract;
+    }
+
+    @JsonSetter("long_abstract")
+    private void setLongAbstractForOldModel(String longAbstract) {
         this.longAbstract = longAbstract;
     }
 
@@ -82,19 +129,43 @@ public class Session {
         this.comments = comments;
     }
 
+    @JsonGetter("starts-at")
     public String getStartsAt() {
         return startsAt;
     }
 
+    @JsonSetter("starts-at")
     public void setStartsAt(String startsAt) {
         this.startsAt = startsAt;
     }
 
+    @JsonGetter("start_time")
+    private String getStartsAtForOldModel() {
+        return startsAt;
+    }
+
+    @JsonSetter("start_time")
+    private void setStartsAtForOldModel(String startsAt) {
+        this.startsAt = startsAt;
+    }
+
+    @JsonGetter("ends-at")
     public String getEndsAt() {
         return endsAt;
     }
 
+    @JsonSetter("ends-at")
     public void setEndsAt(String endsAt) {
+        this.endsAt = endsAt;
+    }
+
+    @JsonGetter("end_time")
+    private String getEndsAtForOldModel() {
+        return endsAt;
+    }
+
+    @JsonSetter("end_time")
+    private void setEndsAtForOldModel(String endsAt) {
         this.endsAt = endsAt;
     }
 
@@ -106,35 +177,83 @@ public class Session {
         this.language = language;
     }
 
+    @JsonGetter("slides-url")
     public String getSlidesUrl() {
         return slidesUrl;
     }
 
+    @JsonSetter("slides-url")
     public void setSlidesUrl(String slidesUrl) {
         this.slidesUrl = slidesUrl;
     }
 
+    @JsonGetter("slides")
+    private String getSlidesUrlForOldModel() {
+        return slidesUrl;
+    }
+
+    @JsonSetter("slides")
+    private void setSlidesUrlForOldModel(String slidesUrl) {
+        this.slidesUrl = slidesUrl;
+    }
+
+    @JsonGetter("videos-url")
     public String getVideoUrl() {
         return videoUrl;
     }
 
+    @JsonSetter("videos-url")
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
 
+    @JsonGetter("video")
+    private String getVideoUrlForOldModel() {
+        return videoUrl;
+    }
+
+    @JsonSetter("video")
+    private void setVideoUrlForOldModel(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
+
+    @JsonGetter("audios-url")
     public String getAudioUrl() {
         return audioUrl;
     }
 
+    @JsonSetter("audios-url")
     public void setAudioUrl(String audioUrl) {
         this.audioUrl = audioUrl;
     }
 
+    @JsonGetter("audio")
+    private String getAudioUrlForOldModel() {
+        return audioUrl;
+    }
+
+    @JsonSetter("audio")
+    private void setAudioUrlForOldModel(String audioUrl) {
+        this.audioUrl = audioUrl;
+    }
+
+    @JsonGetter("signup-url")
     public String getSignupUrl() {
         return signupUrl;
     }
 
+    @JsonSetter("signup-url")
     public void setSignupUrl(String signupUrl) {
+        this.signupUrl = signupUrl;
+    }
+
+    @JsonGetter("signup_url")
+    private String getSignupUrlForOldModel() {
+        return signupUrl;
+    }
+
+    @JsonSetter("signup_url")
+    private void setSignupUrlForOldModel(String signupUrl) {
         this.signupUrl = signupUrl;
     }
 
@@ -146,10 +265,54 @@ public class Session {
         this.state = state;
     }
 
-    public SessionType getSessionType() {
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(String deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public String getSubmittedAt() {
+        return submittedAt;
+    }
+
+    public void setSubmittedAt(String submittedAt) {
+        this.submittedAt = submittedAt;
+    }
+
+    public String getIsMailSent() {
+        return isMailSent;
+    }
+
+    public void setIsMailSent(String isMailSent) {
+        this.isMailSent = isMailSent;
+    }
+
+    @JsonGetter("session-type")
+    public SessionType getSessionTypeForOldModel() {
         return sessionType;
     }
 
+    @JsonSetter("session_type")
+    private void setSessionTypeForOldModel(SessionType sessionType) {
+        this.sessionType = sessionType;
+    }
+
+    @JsonGetter("session_type")
+    private SessionType getSessionType() {
+        return sessionType;
+    }
+
+    @JsonSetter("session-type")
     public void setSessionType(SessionType sessionType) {
         this.sessionType = sessionType;
     }
@@ -184,6 +347,7 @@ public class Session {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", subtitle='" + subtitle + '\'' +
+                ", level='" + level + '\'' +
                 ", shortAbstract='" + shortAbstract + '\'' +
                 ", longAbstract='" + longAbstract + '\'' +
                 ", comments='" + comments + '\'' +
@@ -195,6 +359,10 @@ public class Session {
                 ", audioUrl='" + audioUrl + '\'' +
                 ", signupUrl='" + signupUrl + '\'' +
                 ", state='" + state + '\'' +
+                ", created-at='" + createdAt + '\'' +
+                ", deleted-at='" + deletedAt + '\'' +
+                ", submitted-at='" + submittedAt + '\'' +
+                ", is-mail-sent='" + isMailSent + '\'' +
                 ", sessionType=" + sessionType +
                 ", track=" + track +
                 ", microlocation=" + microlocation +

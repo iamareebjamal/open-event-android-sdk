@@ -1,11 +1,9 @@
 package openevent;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
 import openevent.model.*;
-import openevent.model.api.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,19 +26,19 @@ public class Application {
             application.doModelDeserialization(Microlocation.class, Microlocation.class, "microlocations", true);
 
             //Sponsor Deserialization
-            application.doModelDeserialization(Sponsor.class, ApiSponsor.class, "sponsors", true);
+            application.doModelDeserialization(Sponsor.class, Sponsor.class, "sponsors", true);
 
             //Track Deserialization
-            application.doModelDeserialization(Track.class, ApiTrack.class, "tracks", true);
+            application.doModelDeserialization(Track.class, Track.class, "tracks", true);
 
             //SessionType Deserialization
             application.doModelDeserialization(SessionType.class, SessionType.class, "session_types", true);
 
             //Session Deserialization
-            application.doModelDeserialization(Session.class, ApiSession.class, "sessions", true);
+            application.doModelDeserialization(Session.class, Session.class, "sessions", true);
 
             //Speakers Deserialization
-            application.doModelDeserialization(Speaker.class, ApiSpeaker.class, "speakers", true);
+            application.doModelDeserialization(Speaker.class, Speaker.class, "speakers", true);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
@@ -55,7 +53,7 @@ public class Application {
     private <T> void oldModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
         String path = jsonSource + ".json";
         if (isList) {
-            List<T> items = objectMapper.readValue(getFile(path), new TypeReference<List<T>>() {});
+            List<T> items = objectMapper.readValue(getFile(path), objectMapper.getTypeFactory().constructCollectionType(List.class, type));
             System.out.println(items.toString());
         } else {
             T item = objectMapper.readValue(getFile(path), type);
