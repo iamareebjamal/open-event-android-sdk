@@ -1,0 +1,36 @@
+{
+  "data": {
+    "attributes": {
+      "is-admin": false,
+      "last-name": "Doe",
+      "instagram-url": "http://instagram.com/instagram",
+      "is-super-admin": false,
+      "thumbnail-image-url": "http://example.com/example.png",
+      "created-at": "2017-06-21T12:26:09.075379+00:00",
+      "last-accessed-at": null,
+      "email": "example@example.com",
+      "icon-image-url": "http://example.com/example.png",
+      "contact": "example",
+      "deleted-at": null,
+      "small-image-url": "http://example.com/example.png",
+      "facebook-url": "http://facebook.com/facebook",
+      "details": "example",
+      "is-verified": false,
+      "first-name": "John",
+      "avatar-url": "http://example.com/example.png",
+      "twitter-url": "http://twitter.com/twitter",
+      "google-plus-url": "http://plus.google.com/plus.google"
+    },
+    "type": "user",
+    "id": "2",
+    "links": {
+      "self": "/v1/users/2"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/users/2"
+  }
+}

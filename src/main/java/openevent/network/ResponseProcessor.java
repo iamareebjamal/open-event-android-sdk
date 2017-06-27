@@ -7,11 +7,14 @@ import retrofit2.Response;
 public class ResponseProcessor<T> implements Callback<T> {
     @Override
     public void onResponse(Call<T> call, Response<T> response) {
-        if (response.isSuccessful()) {
-            System.out.println(response.body());
-        } else {
-            System.out.println(response.raw());
+        synchronized(System.out) {
+            if (response.isSuccessful())
+                System.out.println(response.body());
+            else
+                System.out.println(response.raw());
+            System.out.println();
         }
+
     }
 
     @Override

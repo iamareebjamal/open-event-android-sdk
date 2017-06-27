@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "count": 1
+  },
+  "data": [
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/tickets/1/relationships/event",
+            "related": "/v1/tickets/1/event"
+          }
+        }
+      },
+      "attributes": {
+        "name": "ticket-name",
+        "description": "some description",
+        "type": "VIP-ticket",
+        "price": 100.00,
+        "quantity": 100,
+        "description-toggle": false,
+        "position": null,
+        "is-fee-absorbed": null,
+        "sales-starts-at": "2017-06-01T01:24:47.500127+00:00",
+        "sales-ends-at": "2017-06-30T00:24:47.500127+00:00",
+        "is-hidden": false,
+        "min-order": 1,
+        "max-order": 100
+      },
+      "type": "ticket",
+      "id": "1",
+      "links": {
+        "self": "/v1/tickets/1"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/tickets"
+  }
+}

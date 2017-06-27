@@ -4,10 +4,8 @@ public final class DataDownloadManager {
     private static DataDownloadManager instance;
 
     private APIClient client = new APIClient();
-    private ResponseProcessor responseProcessor = new ResponseProcessor<>();
 
-    private DataDownloadManager() {
-    }
+    private DataDownloadManager() {}
 
     public static DataDownloadManager getInstance() {
         if (instance == null) {
@@ -17,26 +15,26 @@ public final class DataDownloadManager {
     }
 
     public void downloadEvents() {
-        client.getApiService().getEvent().enqueue(responseProcessor);
+        client.getApiService().getEvent().enqueue(new ResponseProcessor<>());
     }
 
     public void downloadTracks() {
-        client.getApiService().getTracks().enqueue(responseProcessor);
+        client.getApiService().getTracks().enqueue(new ResponseProcessor<>());
     }
 
     public void downloadSpeakers() {
-        client.getApiService().getSpeakers().enqueue(responseProcessor);
+        client.getApiService().getSpeakers().enqueue(new ResponseProcessor<>());
     }
 
     public void downloadSponsors() {
-        client.getApiService().getSponsors().enqueue(responseProcessor);
+        client.getApiService().getSponsors().enqueue(new ResponseProcessor<>());
     }
 
     public void downloadSessions() {
-        client.getApiService().getSessions().enqueue(responseProcessor);
+        client.getApiService().getSessions().enqueue(new ResponseProcessor<>());
     }
 
     public void downloadMicrolocations() {
-        client.getApiService().getMicrolocations().enqueue(responseProcessor);
+        client.getApiService().getMicrolocations().enqueue(new ResponseProcessor<>());
     }
 }
