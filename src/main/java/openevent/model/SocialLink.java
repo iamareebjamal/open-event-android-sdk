@@ -1,21 +1,22 @@
 package openevent.model;
 
+import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("social-link")
 public class SocialLink {
 
-    @Id
-    private String id;
+    @Id(IntegerIdHandler.class)
+    private int id;
     private String link;
     private String name;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

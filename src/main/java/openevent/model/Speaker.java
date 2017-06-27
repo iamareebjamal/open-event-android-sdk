@@ -1,8 +1,8 @@
 package openevent.model;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
@@ -12,8 +12,8 @@ import java.util.List;
 @Type("speaker")
 public class Speaker {
 
-    @Id
-    private String id;
+    @Id(IntegerIdHandler.class)
+    private int id;
     private String name;
     private String email;
     private String mobile;
@@ -40,11 +40,11 @@ public class Speaker {
     @Relationship("sessions")
     private List<Session> sessions;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -104,7 +104,6 @@ public class Speaker {
         this.country = country;
     }
 
-    @JsonGetter("short-biography")
     public String getShortBiography() {
         return shortBiography;
     }
@@ -114,17 +113,11 @@ public class Speaker {
         this.shortBiography = shortBiography;
     }
 
-    @JsonGetter("short_biography")
-    private String getShortBiographyForOldModel() {
-        return shortBiography;
-    }
-
     @JsonSetter("short_biography")
     private void setShortBiographyForOldModel(String shortBiography) {
         this.shortBiography = shortBiography;
     }
 
-    @JsonGetter("long-biography")
     public String getLongBiography() {
         return longBiography;
     }
@@ -134,17 +127,11 @@ public class Speaker {
         this.longBiography = longBiography;
     }
 
-    @JsonGetter("long_biography")
-    private String getLongBiographyForOldModel() {
-        return longBiography;
-    }
-
     @JsonSetter("long_biography")
     private void setLongBiographyForOldModel(String longBiography) {
         this.longBiography = longBiography;
     }
 
-    @JsonGetter("speaking-experience")
     public String getSpeakingExperience() {
         return speakingExperience;
     }
@@ -152,11 +139,6 @@ public class Speaker {
     @JsonSetter("speaking-experience")
     public void setSpeakingExperience(String speakingExperience) {
         this.speakingExperience = speakingExperience;
-    }
-
-    @JsonGetter("speaking_experience")
-    private String getSpeakingExperienceForOldModel() {
-        return speakingExperience;
     }
 
     @JsonSetter("speaking_experience")
@@ -204,7 +186,6 @@ public class Speaker {
         this.linkedinUrl = linkedinUrl;
     }
 
-    @JsonGetter("is-featured")
     public boolean getFeatured() {
         return isFeatured;
     }
@@ -212,11 +193,6 @@ public class Speaker {
     @JsonSetter("is-featured")
     public void setFeatured(boolean isFeatured) {
         this.isFeatured = isFeatured;
-    }
-
-    @JsonGetter("featured")
-    private boolean getFeaturedForOldModel() {
-        return isFeatured;
     }
 
     @JsonSetter("featured")
