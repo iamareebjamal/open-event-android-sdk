@@ -20,33 +20,33 @@ public class Application {
 
         try {
             //Event Deserialization
-            application.doModelDeserialization(Event.class, Event.class, "event", false);
+            application.doModelDeserialization(Event.class, "event", false);
 
             //Microlocations Deserialization
-            application.doModelDeserialization(Microlocation.class, Microlocation.class, "microlocations", true);
+            application.doModelDeserialization(Microlocation.class, "microlocations", true);
 
             //Sponsor Deserialization
-            application.doModelDeserialization(Sponsor.class, Sponsor.class, "sponsors", true);
+            application.doModelDeserialization(Sponsor.class, "sponsors", true);
 
             //Track Deserialization
-            application.doModelDeserialization(Track.class, Track.class, "tracks", true);
+            application.doModelDeserialization(Track.class, "tracks", true);
 
             //SessionType Deserialization
-            application.doModelDeserialization(SessionType.class, SessionType.class, "session_types", true);
+            application.doModelDeserialization(SessionType.class, "session_types", true);
 
             //Session Deserialization
-            application.doModelDeserialization(Session.class, Session.class, "sessions", true);
+            application.doModelDeserialization(Session.class, "sessions", true);
 
             //Speakers Deserialization
-            application.doModelDeserialization(Speaker.class, Speaker.class, "speakers", true);
+            application.doModelDeserialization(Speaker.class, "speakers", true);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
     }
 
-    private <T, V> void doModelDeserialization(Class<T> oldType, Class<V> newType, String jsonSource, boolean isList) throws IOException {
-        oldModelDeserialization(oldType, jsonSource, isList);
-        newModelDeserialization(newType, jsonSource, isList);
+    private <T, V> void doModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
+        oldModelDeserialization(type, jsonSource, isList);
+        newModelDeserialization(type, jsonSource, isList);
         System.out.println();
     }
 

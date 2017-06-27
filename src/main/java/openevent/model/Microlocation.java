@@ -1,24 +1,25 @@
 package openevent.model;
 
+import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("microlocation")
 public class Microlocation {
 
-    @Id
-    private String id;
+    @Id(IntegerIdHandler.class)
+    private int id;
     private String name;
     private String latitude;
     private String longitude;
     private String floor;
     private String room;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,6 +1,7 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
 import com.github.jasminb.jsonapi.annotations.Type;
@@ -10,8 +11,8 @@ import java.util.List;
 @Type("event")
 public class Event {
 
-    @Id
-    private String id;
+    @Id(IntegerIdHandler.class)
+    private int id;
     @JsonProperty("payment-country")
     private String paymentCountry;
     @JsonProperty("paypal-email")
@@ -104,11 +105,11 @@ public class Event {
     @JsonProperty("call-for-papers")
     private CallForPapers callForPapers;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -1,15 +1,15 @@
 package openevent.model;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("sponsor")
 public class Sponsor {
 
-    @Id
-    private String id;
+    @Id(IntegerIdHandler.class)
+    private int id;
     private String name;
     private String description;
     private String level;
@@ -17,11 +17,11 @@ public class Sponsor {
     private String type;
     private String logoUrl;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -57,7 +57,6 @@ public class Sponsor {
         this.url = url;
     }
 
-    @JsonGetter("type")
     public String getType() {
         return type;
     }
@@ -67,17 +66,11 @@ public class Sponsor {
         this.type = type;
     }
 
-    @JsonGetter("sponsor_type")
-    private String getTypeForOldModel() {
-        return type;
-    }
-
     @JsonSetter("sponsor_type")
     private void setTypeForOldModel(String type) {
         this.type = type;
     }
 
-    @JsonGetter("logo-url")
     public String getLogoUrl() {
         return logoUrl;
     }
@@ -85,11 +78,6 @@ public class Sponsor {
     @JsonSetter("logo-url")
     public void setLogoUrl(String logoUrl) {
         this.logoUrl = logoUrl;
-    }
-
-    @JsonGetter("logo")
-    private String getLogoUrlForOldModel() {
-        return logoUrl;
     }
 
     @JsonSetter("logo")
