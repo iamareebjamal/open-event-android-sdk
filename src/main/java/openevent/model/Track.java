@@ -1,17 +1,24 @@
 package openevent.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.github.jasminb.jsonapi.annotations.Id;
+import com.github.jasminb.jsonapi.annotations.Relationship;
+import com.github.jasminb.jsonapi.annotations.Type;
 
 import java.util.List;
 
+@Type("track")
 public class Track {
 
+    @Id
     private String id;
     private String name;
     private String description;
     private String color;
-    @JsonProperty("font-color")
     private String fontColor;
+
+    @Relationship("sessions")
     private List<Session> sessions;
 
     public String getId() {
@@ -46,11 +53,23 @@ public class Track {
         this.color = color;
     }
 
+    @JsonGetter("font-color")
     public String getFontColor() {
         return fontColor;
     }
 
+    @JsonSetter("font-color")
     public void setFontColor(String fontColor) {
+        this.fontColor = fontColor;
+    }
+
+    @JsonGetter("font_color")
+    private String getFontColorForOldModel() {
+        return fontColor;
+    }
+
+    @JsonSetter("font_color")
+    private void setFontColorForOldModel(String fontColor) {
         this.fontColor = fontColor;
     }
 

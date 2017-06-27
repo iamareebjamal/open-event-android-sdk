@@ -1,13 +1,18 @@
 package openevent.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.github.jasminb.jsonapi.annotations.Id;
+import com.github.jasminb.jsonapi.annotations.Relationship;
+import com.github.jasminb.jsonapi.annotations.Type;
 
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@Type("speaker")
 public class Speaker {
 
+    @Id
     private String id;
     private String name;
     private String email;
@@ -17,11 +22,8 @@ public class Speaker {
     private String organisation;
     private String position;
     private String country;
-    @JsonProperty("short_biography")
     private String shortBiography;
-    @JsonProperty("long_biography")
     private String longBiography;
-    @JsonProperty("speaking_experience")
     private String speakingExperience;
     @JsonProperty("website")
     private String websiteUrl;
@@ -33,8 +35,9 @@ public class Speaker {
     private String githubUrl;
     @JsonProperty("linkedin")
     private String linkedinUrl;
-    @JsonProperty("featured")
     private boolean isFeatured;
+
+    @Relationship("sessions")
     private List<Session> sessions;
 
     public String getId() {
@@ -101,27 +104,63 @@ public class Speaker {
         this.country = country;
     }
 
+    @JsonGetter("short-biography")
     public String getShortBiography() {
         return shortBiography;
     }
 
+    @JsonSetter("short-biography")
     public void setShortBiography(String shortBiography) {
         this.shortBiography = shortBiography;
     }
 
+    @JsonGetter("short_biography")
+    private String getShortBiographyForOldModel() {
+        return shortBiography;
+    }
+
+    @JsonSetter("short_biography")
+    private void setShortBiographyForOldModel(String shortBiography) {
+        this.shortBiography = shortBiography;
+    }
+
+    @JsonGetter("long-biography")
     public String getLongBiography() {
         return longBiography;
     }
 
+    @JsonSetter("long-biography")
     public void setLongBiography(String longBiography) {
         this.longBiography = longBiography;
     }
 
+    @JsonGetter("long_biography")
+    private String getLongBiographyForOldModel() {
+        return longBiography;
+    }
+
+    @JsonSetter("long_biography")
+    private void setLongBiographyForOldModel(String longBiography) {
+        this.longBiography = longBiography;
+    }
+
+    @JsonGetter("speaking-experience")
     public String getSpeakingExperience() {
         return speakingExperience;
     }
 
+    @JsonSetter("speaking-experience")
     public void setSpeakingExperience(String speakingExperience) {
+        this.speakingExperience = speakingExperience;
+    }
+
+    @JsonGetter("speaking_experience")
+    private String getSpeakingExperienceForOldModel() {
+        return speakingExperience;
+    }
+
+    @JsonSetter("speaking_experience")
+    private void setSpeakingExperienceForOldModel(String speakingExperience) {
         this.speakingExperience = speakingExperience;
     }
 
@@ -165,11 +204,23 @@ public class Speaker {
         this.linkedinUrl = linkedinUrl;
     }
 
+    @JsonGetter("is-featured")
     public boolean getFeatured() {
         return isFeatured;
     }
 
+    @JsonSetter("is-featured")
     public void setFeatured(boolean isFeatured) {
+        this.isFeatured = isFeatured;
+    }
+
+    @JsonGetter("featured")
+    private boolean getFeaturedForOldModel() {
+        return isFeatured;
+    }
+
+    @JsonSetter("featured")
+    private void setFeaturedForOldModel(boolean isFeatured) {
         this.isFeatured = isFeatured;
     }
 
