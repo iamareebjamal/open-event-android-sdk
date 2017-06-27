@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jasminb.jsonapi.JSONAPIDocument;
 import com.github.jasminb.jsonapi.ResourceConverter;
 import openevent.model.*;
+import openevent.network.DataDownloadManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,44 +14,60 @@ import static openevent.utils.IOUtils.getInputStream;
 
 public class Application {
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private static ObjectMapper objectMapper = new ObjectMapper();
 
     public static void main(String[] args) {
-        Application application = new Application();
 
+        testLocalJsonDeserialization();
+
+        System.out.println("----------------------------------------------------------------------------------\n");
+
+        testServerResponseDeserialization();
+    }
+
+    private static void testLocalJsonDeserialization() {
         try {
             //Event Deserialization
-            application.doModelDeserialization(Event.class, "event", false);
+            doModelDeserialization(Event.class, "event", false);
 
             //Microlocations Deserialization
-            application.doModelDeserialization(Microlocation.class, "microlocations", true);
+            doModelDeserialization(Microlocation.class, "microlocations", true);
 
             //Sponsor Deserialization
-            application.doModelDeserialization(Sponsor.class, "sponsors", true);
+            doModelDeserialization(Sponsor.class, "sponsors", true);
 
             //Track Deserialization
-            application.doModelDeserialization(Track.class, "tracks", true);
+            doModelDeserialization(Track.class, "tracks", true);
 
             //SessionType Deserialization
-            application.doModelDeserialization(SessionType.class, "session_types", true);
+            doModelDeserialization(SessionType.class, "session_types", true);
 
             //Session Deserialization
-            application.doModelDeserialization(Session.class, "sessions", true);
+            doModelDeserialization(Session.class, "sessions", true);
 
             //Speakers Deserialization
-            application.doModelDeserialization(Speaker.class, "speakers", true);
+            doModelDeserialization(Speaker.class, "speakers", true);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
     }
 
-    private <T, V> void doModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
+    private static void testServerResponseDeserialization() {
+        DataDownloadManager.getInstance().downloadEvents();
+        DataDownloadManager.getInstance().downloadTracks();
+        DataDownloadManager.getInstance().downloadMicrolocations();
+        DataDownloadManager.getInstance().downloadSponsors();
+        DataDownloadManager.getInstance().downloadSessions();
+        DataDownloadManager.getInstance().downloadSpeakers();
+    }
+    
+    private static <T, V> void doModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
         oldModelDeserialization(type, jsonSource, isList);
         newModelDeserialization(type, jsonSource, isList);
         System.out.println();
     }
 
-    private <T> void oldModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
+    private static <T> void oldModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
         String path = jsonSource + ".json";
         if (isList) {
             List<T> items = objectMapper.readValue(getFile(path), objectMapper.getTypeFactory().constructCollectionType(List.class, type));
@@ -61,7 +78,7 @@ public class Application {
         }
     }
 
-    private <T> void newModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
+    private static <T> void newModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
         String path = "api/" + jsonSource + ".json";
         ResourceConverter converter = new ResourceConverter(type);
         if (isList) {
