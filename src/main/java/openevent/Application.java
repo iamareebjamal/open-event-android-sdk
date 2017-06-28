@@ -19,10 +19,21 @@ public class Application {
     public static void main(String[] args) {
 
         testLocalJsonDeserialization();
+        testLocalOrgaJsonDeserialization();
 
         System.out.println("----------------------------------------------------------------------------------\n");
 
         testServerResponseDeserialization();
+    }
+
+    private static void testLocalOrgaJsonDeserialization() {
+        try {
+            newModelDeserialization(User.class, "user", false);
+            newModelDeserialization(Ticket.class, "tickets", true);
+            newModelDeserialization(EventInvoice.class, "event-invoices", true);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
     }
 
     private static void testLocalJsonDeserialization() {

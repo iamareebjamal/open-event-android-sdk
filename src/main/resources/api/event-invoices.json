@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "count": 1
+  },
+  "data": [
+    {
+      "relationships": {
+        "event": {
+          "links": {
+            "self": "/v1/event-invoices/1/relationships/event",
+            "related": "/v1/event-invoices/1/event"
+          }
+        },
+        "user": {
+          "links": {
+            "self": "/v1/event-invoices/1/relationships/user",
+            "related": "/v1/event-invoices/1/user"
+          }
+        }
+      },
+      "attributes": {
+        "status": "pending",
+        "city": null,
+        "identifier": "3fe1aa02-34dd-41ea-a0a9-f7a0259b90b5",
+        "paypal-token": null,
+        "exp-year": null,
+        "transaction-id": null,
+        "country": null,
+        "brand": null,
+        "created-at": "2017-06-08T11:24:57.344803+00:00",
+        "zipcode": null,
+        "payment-mode": null,
+        "stripe-token": null,
+        "last4": null,
+        "state": null,
+        "address": null,
+        "exp-month": null,
+        "amount": 100,
+        "completed-at": null,
+        "paid-via": null
+      },
+      "type": "event-invoice",
+      "id": "1",
+      "links": {
+        "self": "/v1/event-invoices/1"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/event-invoices"
+  }
+}
