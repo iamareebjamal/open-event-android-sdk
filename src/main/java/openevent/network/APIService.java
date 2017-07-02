@@ -8,21 +8,21 @@ import java.util.List;
 
 public interface APIService {
 
-    @GET("event.json")
+    @GET("../69")
     Call<Event> getEvent();
 
-    @GET("tracks.json")
+    @GET("tracks?include=sessions&fields[session]=title")
     Call<List<Track>> getTracks();
 
-    @GET("speakers.json")
+    @GET("speakers")
     Call<List<Speaker>> getSpeakers();
 
-    @GET("sponsors.json")
+    @GET("sponsors")
     Call<List<Sponsor>> getSponsors();
 
-    @GET("sessions.json")
+    @GET("sessions?include=microlocation,track&fields[microlocation]=name&fields[track]=name")
     Call<List<Session>> getSessions();
 
-    @GET("microlocations.json")
+    @GET("microlocations")
     Call<List<Microlocation>> getMicrolocations();
 }

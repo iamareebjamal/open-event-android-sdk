@@ -14,7 +14,7 @@ public final class DataDownloadManager {
         return instance;
     }
 
-    public void downloadEvents() {
+    public void downloadEvent() {
         client.getApiService().getEvent().enqueue(new ResponseProcessor<>());
     }
 

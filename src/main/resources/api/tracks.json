@@ -96,6 +96,6 @@
     "version": "1.0"
   },
   "links": {
-    "self": "/v1/trackss"
+    "self": "/v1/tracks"
   }
 }

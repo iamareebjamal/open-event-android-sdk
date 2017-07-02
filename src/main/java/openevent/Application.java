@@ -21,7 +21,7 @@ public class Application {
         testLocalJsonDeserialization();
         testLocalOrgaJsonDeserialization();
 
-        System.out.println("----------------------------------------------------------------------------------\n");
+        System.out.println("----------------------------------------------------------------------------------");
 
         testServerResponseDeserialization();
     }
@@ -64,7 +64,7 @@ public class Application {
     }
 
     private static void testServerResponseDeserialization() {
-        DataDownloadManager.getInstance().downloadEvents();
+        DataDownloadManager.getInstance().downloadEvent();
         DataDownloadManager.getInstance().downloadTracks();
         DataDownloadManager.getInstance().downloadMicrolocations();
         DataDownloadManager.getInstance().downloadSponsors();
@@ -72,7 +72,7 @@ public class Application {
         DataDownloadManager.getInstance().downloadSpeakers();
     }
     
-    private static <T, V> void doModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
+    private static <T> void doModelDeserialization(Class<T> type, String jsonSource, boolean isList) throws IOException {
         oldModelDeserialization(type, jsonSource, isList);
         newModelDeserialization(type, jsonSource, isList);
         System.out.println();
