@@ -171,7 +171,7 @@ public class Session {
         return videoUrl;
     }
 
-    @JsonSetter("videos-url")
+    @JsonSetter("video-url")
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
     }
@@ -185,7 +185,7 @@ public class Session {
         return audioUrl;
     }
 
-    @JsonSetter("audios-url")
+    @JsonSetter("audio-url")
     public void setAudioUrl(String audioUrl) {
         this.audioUrl = audioUrl;
     }
