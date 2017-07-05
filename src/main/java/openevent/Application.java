@@ -31,6 +31,7 @@ public class Application {
             newModelDeserialization(User.class, "user", false);
             newModelDeserialization(Ticket.class, "tickets", true);
             newModelDeserialization(EventInvoice.class, "event-invoices", true);
+            newModelDeserialization(Attendee.class, "attendees", true);
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

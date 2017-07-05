@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "count": 1
+  },
+  "data": [
+    {
+      "relationships": {
+        "ticket": {
+          "links": {
+            "self": "/v1/attendees/1/relationships/ticket",
+            "related": "/v1/attendees/1/ticket"
+          }
+        }
+      },
+      "attributes": {
+        "city": "example",
+        "firstname": "John",
+        "lastname": "Doe",
+        "is-checked-in": false,
+        "state": "example",
+        "address": "address",
+        "pdf-url": "http://example.com",
+        "country": "IN",
+        "email": "johndoe@example.com"
+      },
+      "type": "attendee",
+      "id": "1",
+      "links": {
+        "self": "/v1/attendees/1"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/v1/attendees"
+  }
+}
