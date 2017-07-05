@@ -1,13 +1,15 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("sponsor")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class Sponsor {
 
     @Id(IntegerIdHandler.class)
@@ -63,13 +65,7 @@ public class Sponsor {
         return type;
     }
 
-    @JsonSetter("type")
     public void setType(String type) {
-        this.type = type;
-    }
-
-    @JsonSetter("sponsor_type")
-    private void setTypeForOldModel(String type) {
         this.type = type;
     }
 
@@ -77,13 +73,7 @@ public class Sponsor {
         return logoUrl;
     }
 
-    @JsonSetter("logo-url")
     public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
-    }
-
-    @JsonSetter("logo")
-    private void setLogoUrlForOldModel(String logoUrl) {
         this.logoUrl = logoUrl;
     }
 

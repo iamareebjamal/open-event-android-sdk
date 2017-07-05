@@ -1,7 +1,8 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Type("track")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class Track {
 
     @Id(IntegerIdHandler.class)
@@ -59,13 +61,7 @@ public class Track {
         return fontColor;
     }
 
-    @JsonSetter("font-color")
     public void setFontColor(String fontColor) {
-        this.fontColor = fontColor;
-    }
-
-    @JsonSetter("font_color")
-    private void setFontColorForOldModel(String fontColor) {
         this.fontColor = fontColor;
     }
 

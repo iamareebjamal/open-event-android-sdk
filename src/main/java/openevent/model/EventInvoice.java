@@ -1,13 +1,15 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("event-invoice")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class EventInvoice {
 
     @Id(IntegerIdHandler.class)
@@ -16,30 +18,21 @@ public class EventInvoice {
     private String status;
     private String city;
     private String identifier;
-    @JsonProperty("paypal-token")
     private String paypalToken;
-    @JsonProperty("exp-year")
     private String expYear;
-    @JsonProperty("transaction-id")
     private String transactionId;
     private String country;
     private String brand;
-    @JsonProperty("created-at")
     private String createdAt;
     private String zipcode;
-    @JsonProperty("payment-mode")
     private String paymentMode;
-    @JsonProperty("stripe-token")
     private String stripeToken;
     private String last4;
     private String state;
     private String address;
-    @JsonProperty("exp-month")
     private String expMonth;
     private double amount;
-    @JsonProperty("completed-at")
     private String completedAt;
-    @JsonProperty("paid-via")
     private String paidVia;
 
     public int getId() {

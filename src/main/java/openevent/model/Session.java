@@ -1,8 +1,8 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
@@ -12,6 +12,7 @@ import java.util.List;
 
 @Type("session")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class Session {
 
     @Id(IntegerIdHandler.class)
@@ -30,13 +31,9 @@ public class Session {
     private String audioUrl;
     private String signupUrl;
     private String state;
-    @JsonProperty("created-at")
     private String createdAt;
-    @JsonProperty("deleted-at")
     private String deletedAt;
-    @JsonProperty("submitted-at")
     private String submittedAt;
-    @JsonProperty("is-mail-sent")
     private String isMailSent;
 
     @Relationship("session-type")
@@ -87,13 +84,7 @@ public class Session {
         return shortAbstract;
     }
 
-    @JsonSetter("short-abstract")
     public void setShortAbstract(String shortAbstract) {
-        this.shortAbstract = shortAbstract;
-    }
-
-    @JsonSetter("short_abstract")
-    private void setShortAbstractForOldModel(String shortAbstract) {
         this.shortAbstract = shortAbstract;
     }
 
@@ -101,13 +92,7 @@ public class Session {
         return longAbstract;
     }
 
-    @JsonSetter("long-abstract")
     public void setLongAbstract(String longAbstract) {
-        this.longAbstract = longAbstract;
-    }
-
-    @JsonSetter("long_abstract")
-    private void setLongAbstractForOldModel(String longAbstract) {
         this.longAbstract = longAbstract;
     }
 
@@ -123,13 +108,7 @@ public class Session {
         return startsAt;
     }
 
-    @JsonSetter("starts-at")
     public void setStartsAt(String startsAt) {
-        this.startsAt = startsAt;
-    }
-
-    @JsonSetter("start_time")
-    private void setStartsAtForOldModel(String startsAt) {
         this.startsAt = startsAt;
     }
 
@@ -137,13 +116,7 @@ public class Session {
         return endsAt;
     }
 
-    @JsonSetter("ends-at")
     public void setEndsAt(String endsAt) {
-        this.endsAt = endsAt;
-    }
-
-    @JsonSetter("end_time")
-    private void setEndsAtForOldModel(String endsAt) {
         this.endsAt = endsAt;
     }
 
@@ -159,13 +132,7 @@ public class Session {
         return slidesUrl;
     }
 
-    @JsonSetter("slides-url")
     public void setSlidesUrl(String slidesUrl) {
-        this.slidesUrl = slidesUrl;
-    }
-
-    @JsonSetter("slides")
-    private void setSlidesUrlForOldModel(String slidesUrl) {
         this.slidesUrl = slidesUrl;
     }
 
@@ -173,13 +140,7 @@ public class Session {
         return videoUrl;
     }
 
-    @JsonSetter("video-url")
     public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-
-    @JsonSetter("video")
-    private void setVideoUrlForOldModel(String videoUrl) {
         this.videoUrl = videoUrl;
     }
 
@@ -187,13 +148,7 @@ public class Session {
         return audioUrl;
     }
 
-    @JsonSetter("audio-url")
     public void setAudioUrl(String audioUrl) {
-        this.audioUrl = audioUrl;
-    }
-
-    @JsonSetter("audio")
-    private void setAudioUrlForOldModel(String audioUrl) {
         this.audioUrl = audioUrl;
     }
 
@@ -201,13 +156,7 @@ public class Session {
         return signupUrl;
     }
 
-    @JsonSetter("signup-url")
     public void setSignupUrl(String signupUrl) {
-        this.signupUrl = signupUrl;
-    }
-
-    @JsonSetter("signup_url")
-    private void setSignupUrlForOldModel(String signupUrl) {
         this.signupUrl = signupUrl;
     }
 
@@ -251,16 +200,10 @@ public class Session {
         this.isMailSent = isMailSent;
     }
 
-    public SessionType getSessionTypeForOldModel() {
+    public SessionType getSessionType() {
         return sessionType;
     }
 
-    @JsonSetter("session_type")
-    private void setSessionTypeForOldModel(SessionType sessionType) {
-        this.sessionType = sessionType;
-    }
-
-    @JsonSetter("session-type")
     public void setSessionType(SessionType sessionType) {
         this.sessionType = sessionType;
     }
