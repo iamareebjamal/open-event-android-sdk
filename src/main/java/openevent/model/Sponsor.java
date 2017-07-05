@@ -1,11 +1,13 @@
 package openevent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("sponsor")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Sponsor {
 
     @Id(IntegerIdHandler.class)

@@ -1,5 +1,6 @@
 package openevent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
@@ -10,6 +11,7 @@ import com.github.jasminb.jsonapi.annotations.Type;
 import java.util.List;
 
 @Type("event")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Event {
 
     @Id(IntegerIdHandler.class)

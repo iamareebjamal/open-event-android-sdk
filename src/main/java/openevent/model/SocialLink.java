@@ -1,10 +1,12 @@
 package openevent.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("social-link")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SocialLink {
 
     @Id(IntegerIdHandler.class)
