@@ -1,13 +1,15 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("ticket")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class Ticket {
     
     @Id(IntegerIdHandler.class)
@@ -18,20 +20,13 @@ public class Ticket {
     private String type;
     private double price;
     private int quantity;
-    @JsonProperty("description-toggle")
     private boolean descriptionToggle;
     private String position;
-    @JsonProperty("is-fee-absorbed")
     private String isFeeAbsorbed;
-    @JsonProperty("sales-starts-at")
     private String salesStartsAt;
-    @JsonProperty("sales-ends-at")
     private String salesEndsAt;
-    @JsonProperty("is-hidden")
     private boolean isHidden;
-    @JsonProperty("min-order")
     private int minOrder;
-    @JsonProperty("max-order")
     private int maxOrder;
 
     public int getId() {
@@ -122,11 +117,11 @@ public class Ticket {
         this.salesEndsAt = salesEndsAt;
     }
 
-    public boolean isHidden() {
+    public boolean getIsHidden() {
         return isHidden;
     }
 
-    public void setHidden(boolean hidden) {
+    public void setIsHidden(boolean hidden) {
         isHidden = hidden;
     }
 

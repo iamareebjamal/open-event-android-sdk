@@ -1,16 +1,16 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class CallForPapers {
 
     private String announcement;
-    @JsonProperty("starts-at")
     private String startsAt;
     private String privacy;
-    @JsonProperty("ends-at")
     private String endsAt;
 
     public String getAnnouncement() {

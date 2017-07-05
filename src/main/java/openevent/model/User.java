@@ -1,52 +1,38 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
 
 @Type("user")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class User {
     
     @Id(IntegerIdHandler.class)
     private int id;
 
-    @JsonProperty("is-admin")
     private boolean isAdmin;
-    @JsonProperty("last-name")
     private String lastName;
-    @JsonProperty("instagram-url")
     private String instagramUrl;
-    @JsonProperty("is-super-admin")
     private boolean isSuperAdmin;
-    @JsonProperty("thumbnail-image-url")
     private String thumbnailImageUrl;
-    @JsonProperty("created-at")
     private String createdAt;
-    @JsonProperty("last-accessed-at")
     private String lastAccessedAt;
     private String email;
-    @JsonProperty("icon-image-url")
     private String iconImageUrl;
     private String contact;
-    @JsonProperty("deleted-at")
     private String deletedAt;
-    @JsonProperty("small-image-url")
     private String smallImageUrl;
-    @JsonProperty("facebook-url")
     private String facebookUrl;
     private String details;
-    @JsonProperty("is-verified")
     private boolean isVerified;
-    @JsonProperty("first-name")
     private String firstName;
-    @JsonProperty("avatar-url")
     private String avatarUrl;
-    @JsonProperty("twitter-url")
     private String twitterUrl;
-    @JsonProperty("google-plus-url")
     private String googlePlusUrl;
 
     public int getId() {
@@ -57,11 +43,11 @@ public class User {
         this.id = id;
     }
 
-    public boolean isAdmin() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setIsAdmin(boolean admin) {
         isAdmin = admin;
     }
 
@@ -81,11 +67,11 @@ public class User {
         this.instagramUrl = instagramUrl;
     }
 
-    public boolean isSuperAdmin() {
+    public boolean getIsSuperAdmin() {
         return isSuperAdmin;
     }
 
-    public void setSuperAdmin(boolean superAdmin) {
+    public void setIsSuperAdmin(boolean superAdmin) {
         isSuperAdmin = superAdmin;
     }
 
@@ -169,11 +155,11 @@ public class User {
         this.details = details;
     }
 
-    public boolean isVerified() {
+    public boolean getIsVerified() {
         return isVerified;
     }
 
-    public void setVerified(boolean verified) {
+    public void setIsVerified(boolean verified) {
         isVerified = verified;
     }
 

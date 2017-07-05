@@ -1,8 +1,7 @@
 package openevent.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Relationship;
@@ -11,100 +10,63 @@ import com.github.jasminb.jsonapi.annotations.Type;
 import java.util.List;
 
 @Type("event")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class Event {
 
     @Id(IntegerIdHandler.class)
     private int id;
-    @JsonProperty("payment-country")
     private String paymentCountry;
-    @JsonProperty("paypal-email")
     private String paypalEmail;
-    @JsonProperty("code-of-conduct")
     private String codeOfConduct;
-    @JsonProperty("can-pay-by-bank")
     private boolean canPayByBank;
-    @JsonProperty("schedule-published-on")
     private String schedulePublishedOn;
-    @JsonProperty("payment-currency")
     private String paymentCurrency;
-    @JsonProperty("organizer-description")
     private String organizerDescription;
-    @JsonProperty("xcal-url")
     private String xcalUrl;
-    @JsonProperty("original-image-url")
     private String originalImageUrl;
     private String topic;
-    @JsonProperty("onsite-details")
     private String onsiteDetails;
-    @JsonProperty("organizer-name")
     private String organizerName;
-    @JsonProperty("large-image-url")
     private String largeImageUrl;
     private String timezone;
-    @JsonProperty("deleted-at")
     private String deletedAt;
-    @JsonProperty("ticket-url")
     private String ticketUrl;
-    @JsonProperty("can-pay-by-stripe")
     private boolean canPayByStripe;
-    @JsonProperty("location-name")
     private String locationName;
     private String privacy;
     private String state;
     private String latitude;
-    @JsonProperty("is-tax-enabled")
     private boolean isTaxEnabled;
-    @JsonProperty("can-pay-onsite")
-    private boolean canPayOnSite;
+    private boolean canPayOnsite;
     private String type;
     private String email;
-    @JsonProperty("starts-at")
     private String startsAt;
-    @JsonProperty("searchable-location-name")
     private String searchableLocationName;
     private String description;
-    @JsonProperty("pentabarf-url")
     private String pentabarfUrl;
-    @JsonProperty("logo-url")
     private String logoUrl;
-    @JsonProperty("is-ticketing-enabled")
     private boolean isTicketingEnabled;
-    @JsonProperty("event-url")
-    private String eventUrl;
-    @JsonProperty("ical-url")
+    private boolean hasOrganizerInfo;
+    private String externalEventUrl;
     private String icalUrl;
-    @JsonProperty("can-pay-by-paypal")
     private boolean canPayByPaypal;
-    @JsonProperty("is-map-shown")
     private boolean isMapShown;
-    @JsonProperty("is-sponsors-enabled")
     private boolean isSponsorsEnabled;
     private String name;
-    @JsonProperty("sub-topic")
     private String subTopic;
-    @JsonProperty("icon-image-url")
     private String iconImageUrl;
-    @JsonProperty("thumbnail-image-url")
     private String thumbnailImageUrl;
-    @JsonProperty("created-at")
     private String createdAt;
     private String longitude;
-    @JsonProperty("can-pay-by-cheque")
-    private boolean canPayByChecque;
-    @JsonProperty("bank-details")
+    private boolean canPayByCheque;
     private String bankDetails;
-    @JsonProperty("cheque-details")
     private String chequeDetails;
     private boolean isSessionSpeakersEnabled;
     private String identifier;
-    @JsonProperty("ends-at")
     private String endsAt;
     @Relationship("social-links")
-    @JsonProperty("social-links")
     private List<SocialLink> socialLinks;
     private Copyright copyright;
-    @JsonProperty("call-for-papers")
     private CallForPapers callForPapers;
 
     public int getId() {
@@ -283,20 +245,20 @@ public class Event {
         this.latitude = latitude;
     }
 
-    public boolean isTaxEnabled() {
+    public boolean getIsTaxEnabled() {
         return isTaxEnabled;
     }
 
-    public void setTaxEnabled(boolean taxEnabled) {
+    public void setIsTaxEnabled(boolean taxEnabled) {
         this.isTaxEnabled = taxEnabled;
     }
 
-    public boolean isCanPayOnSite() {
-        return canPayOnSite;
+    public boolean getCanPayOnsite() {
+        return canPayOnsite;
     }
 
-    public void setCanPayOnSite(boolean canPayOnSite) {
-        this.canPayOnSite = canPayOnSite;
+    public void setCanPayOnsite(boolean canPayOnSite) {
+        this.canPayOnsite = canPayOnSite;
     }
 
     public String getType() {
@@ -355,20 +317,20 @@ public class Event {
         this.logoUrl = logoUrl;
     }
 
-    public boolean isTicketingEnabled() {
+    public boolean getIsTicketingEnabled() {
         return isTicketingEnabled;
     }
 
-    public void setTicketingEnabled(boolean ticketingEnabled) {
+    public void setIsTicketingEnabled(boolean ticketingEnabled) {
         this.isTicketingEnabled = ticketingEnabled;
     }
 
-    public String getEventUrl() {
-        return eventUrl;
+    public String getExternalEventUrl() {
+        return externalEventUrl;
     }
 
-    public void setEventUrl(String eventUrl) {
-        this.eventUrl = eventUrl;
+    public void setExternalEventUrl(String externalEventUrl) {
+        this.externalEventUrl = externalEventUrl;
     }
 
     public String getIcalUrl() {
@@ -379,7 +341,7 @@ public class Event {
         this.icalUrl = icalUrl;
     }
 
-    public boolean isCanPayByPaypal() {
+    public boolean getCanPayByPaypal() {
         return canPayByPaypal;
     }
 
@@ -387,19 +349,19 @@ public class Event {
         this.canPayByPaypal = canPayByPaypal;
     }
 
-    public boolean isMapShown() {
+    public boolean getIsMapShown() {
         return isMapShown;
     }
 
-    public void setMapShown(boolean mapShown) {
+    public void setIsMapShown(boolean mapShown) {
         isMapShown = mapShown;
     }
 
-    public boolean isSponsorsEnabled() {
+    public boolean getisSponsorsEnabled() {
         return isSponsorsEnabled;
     }
 
-    public void setSponsorsEnabled(boolean sponsorsEnabled) {
+    public void setIsSponsorsEnabled(boolean sponsorsEnabled) {
         this.isSponsorsEnabled = sponsorsEnabled;
     }
 
@@ -451,12 +413,12 @@ public class Event {
         this.longitude = longitude;
     }
 
-    public boolean isCanPayByChecque() {
-        return canPayByChecque;
+    public boolean getCanPayByCheque() {
+        return canPayByCheque;
     }
 
-    public void setCanPayByChecque(boolean canPayByChecque) {
-        this.canPayByChecque = canPayByChecque;
+    public void setCanPayByCheque(boolean canPayByChecque) {
+        this.canPayByCheque = canPayByChecque;
     }
 
     public String getBankDetails() {
@@ -475,18 +437,11 @@ public class Event {
         this.chequeDetails = chequeDetails;
     }
 
-    public boolean isSessionSpeakersEnabled() {
+    public boolean getIsSessionsSpeakersEnabled() {
         return isSessionSpeakersEnabled;
     }
 
-    @JsonSetter("is-sessions-speakers-enabled")
-    public void setSessionSpeakersEnabled(boolean sessionSpeakersEnabled) {
-        this.isSessionSpeakersEnabled = sessionSpeakersEnabled;
-    }
-
-
-    @JsonSetter("has-session-speakers")
-    public void setSessionSpeakersEnabledTemp(boolean sessionSpeakersEnabled) {
+    public void setIsSessionsSpeakersEnabled(boolean sessionSpeakersEnabled) {
         this.isSessionSpeakersEnabled = sessionSpeakersEnabled;
     }
 
@@ -530,6 +485,14 @@ public class Event {
         this.callForPapers = callForPapers;
     }
 
+    public boolean isHasOrganizerInfo() {
+        return hasOrganizerInfo;
+    }
+
+    public void setHasOrganizerInfo(boolean hasOrganizerInfo) {
+        this.hasOrganizerInfo = hasOrganizerInfo;
+    }
+
     @Override
     public String toString() {
         return "Event{" +
@@ -556,7 +519,7 @@ public class Event {
                 ", state='" + state + '\'' +
                 ", latitude='" + latitude + '\'' +
                 ", isTaxEnabled=" + isTaxEnabled +
-                ", canPayOnSite=" + canPayOnSite +
+                ", canPayOnsite=" + canPayOnsite +
                 ", type='" + type + '\'' +
                 ", email='" + email + '\'' +
                 ", startsAt='" + startsAt + '\'' +
@@ -565,7 +528,7 @@ public class Event {
                 ", pentabarfUrl='" + pentabarfUrl + '\'' +
                 ", logoUrl='" + logoUrl + '\'' +
                 ", isTicketingEnabled=" + isTicketingEnabled +
-                ", eventUrl='" + eventUrl + '\'' +
+                ", externalEventUrl='" + externalEventUrl + '\'' +
                 ", icalUrl='" + icalUrl + '\'' +
                 ", canPayByPaypal=" + canPayByPaypal +
                 ", isMapShown=" + isMapShown +
@@ -576,7 +539,7 @@ public class Event {
                 ", thumbnailImageUrl='" + thumbnailImageUrl + '\'' +
                 ", createdAt='" + createdAt + '\'' +
                 ", longitude='" + longitude + '\'' +
-                ", canPayByChecque=" + canPayByChecque +
+                ", canPayByCheque=" + canPayByCheque +
                 ", bankDetails='" + bankDetails + '\'' +
                 ", chequeDetails='" + chequeDetails + '\'' +
                 ", isSessionSpeakersEnabled=" + isSessionSpeakersEnabled +

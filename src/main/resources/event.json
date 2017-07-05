@@ -39,7 +39,7 @@
     "ends-at": "2016-03-10T19:30:00+05:00"
   },
   "email": "contact@fossasia.org",
-  "has-session-speakers": true,
+  "is-sessions-speakers-enabled": true,
   "schedule-published-on": "2017-06-05T14:42:19+05:00",
   "searchable-location-name": null,
   "state": "Completed"

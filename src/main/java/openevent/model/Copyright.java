@@ -1,16 +1,16 @@
 package openevent.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonNaming(PropertyNamingStrategy.KebabCaseStrategy.class)
 public class Copyright {
 
     private String holder;
-    @JsonProperty("holder-url")
     private String holderUrl;
     private String licence;
-    @JsonProperty("licence-url")
     private String licenceUrl;
     private String logo;
     private int year;

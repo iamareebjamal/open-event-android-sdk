@@ -3,11 +3,11 @@
     "id": 1,
     "title": "Grand Opening",
     "subtitle": null,
-    "short_abstract": "Short Abstract for the event",
-    "long_abstract": "",
-    "start_time": "2017-05-31T09:30:00+05:30",
-    "end_time": "2017-05-31T10:00:00+05:30",
-    "session_type": {
+    "short-abstract": "Short Abstract for the event",
+    "long-abstract": "",
+    "starts-at": "2017-05-31T09:30:00+05:30",
+    "ends-at": "2017-05-31T10:00:00+05:30",
+    "session-type": {
       "id": 1,
       "length": "00:30",
       "name": "Welcome"
@@ -18,14 +18,14 @@
     },
     "comments": null,
     "language": null,
-    "slides": null,
-    "audio": null,
-    "video": null,
+    "slides-url": null,
+    "audio-url": null,
+    "video-url": null,
     "microlocation": {
       "id": 1,
       "name": "Dalton Hall"
     },
-    "signup_url": null,
+    "signup-url": null,
     "speakers": [
       {
         "id": 1,
@@ -39,11 +39,11 @@
     "id": 2,
     "title": "Deep Learning: From Inception to Dreams",
     "subtitle": null,
-    "short_abstract": "Short Abstract for the event",
-    "long_abstract": "",
-    "start_time": "2017-05-31T10:00:00+08:00",
-    "end_time": "2017-05-31T10:30:00+08:00",
-    "session_type": {
+    "short-abstract": "Short Abstract for the event",
+    "long-abstract": "",
+    "starts-at": "2017-05-31T10:00:00+08:00",
+    "ends-at": "2017-05-31T10:30:00+08:00",
+    "session-type": {
       "id": 2,
       "length": "00:30",
       "name": "Workshop"
@@ -54,14 +54,14 @@
     },
     "comments": "",
     "language": null,
-    "slides": null,
-    "audio": null,
-    "video": null,
+    "slides-url": null,
+    "audio-url": null,
+    "video-url": null,
     "microlocation": {
       "id": 2,
       "name": "Lewis Lab"
     },
-    "signup_url": null,
+    "signup-url": null,
     "speakers": [
       {
         "id": 2,
