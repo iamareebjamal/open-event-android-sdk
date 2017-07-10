@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.jasminb.jsonapi.IntegerIdHandler;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
+import lombok.Data;
 
+@Data
 @Type("microlocation")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Microlocation {
-
     @Id(IntegerIdHandler.class)
     private int id;
     private String name;
@@ -16,64 +17,4 @@ public class Microlocation {
     private String longitude;
     private String floor;
     private String room;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getFloor() {
-        return floor;
-    }
-
-    public void setFloor(String floor) {
-        this.floor = floor;
-    }
-
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
-    }
-
-    @Override
-    public String toString() {
-        return "Microlocation{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", floor='" + floor + '\'' +
-                ", room='" + room + '\'' +
-                '}';
-    }
 }
